@@ -6,4 +6,16 @@
 //  Copyright © 2018 Alexander Stolar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol ProfilePresenterInput: class {
+    
+}
+
+class ProfilePresenter {
+    weak var output: ProfileViewControllerInput?
+}
+
+extension ProfilePresenter: ProfilePresenterInput {
+    
+}

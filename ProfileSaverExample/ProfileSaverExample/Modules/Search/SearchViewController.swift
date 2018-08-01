@@ -12,14 +12,11 @@ protocol SearchViewControllerInput: class {
     
 }
 
-protocol SearchViewControllerOutput: class {
-    
-}
-
 class SearchViewController: UIViewController {
     weak var output: SearchInteractorInput?
+    weak var router: SearchRouterInput?
 }
 
-extension SearchViewController: SearchPresenterOutput {
+extension SearchViewController: SearchViewControllerInput {
     
 }

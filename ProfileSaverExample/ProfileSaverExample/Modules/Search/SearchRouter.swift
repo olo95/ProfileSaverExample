@@ -13,5 +13,9 @@ protocol SearchRouterInput: class {
 }
 
 class SearchRouter {
-    weak var input: SearchRouterInput?
+    
+}
+
+extension SearchRouter: SearchRouterInput {
+    
 }

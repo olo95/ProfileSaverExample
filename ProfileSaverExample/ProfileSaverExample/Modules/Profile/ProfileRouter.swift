@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol ProfileRouterInput: class {
+    
+}
+
+class ProfileRouter {
+    
+}
+
+extension ProfileRouter: ProfileRouterInput {
+    
+}

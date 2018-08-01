@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol LoginPresenterInput: class {
+    
+}
+
+class LoginPresenter {
+    weak var output: LoginViewControllerInput?
+}
+
+extension LoginPresenter: LoginPresenterInput {
+    
+}

@@ -12,14 +12,10 @@ protocol SearchPresenterInput: class {
     
 }
 
-protocol SearchPresenterOutput: class {
-    
-}
-
 class SearchPresenter {
     weak var output: SearchViewControllerInput?
 }
 
-extension SearchPresenter: SearchInteractorOutput {
+extension SearchPresenter: SearchPresenterInput {
     
 }

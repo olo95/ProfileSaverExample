@@ -8,6 +8,15 @@
 
 import UIKit
 
+protocol LoginViewControllerInput: class {
+    
+}
+
 class LoginViewController: UIViewController {
+    weak var output: LoginInteractorInput?
+    weak var router: LoginRouterInput?
+}
+
+extension LoginViewController: LoginViewControllerInput {
     
 }

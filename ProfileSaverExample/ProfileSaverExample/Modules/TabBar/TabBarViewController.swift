@@ -19,6 +19,33 @@ class TabBarViewController: UITabBarController {
         let worker = SearchWorker()
         let router = SearchRouter()
         viewController.output = interactor
+        viewController.router = router
+        interactor.output = presenter
+        presenter.output = viewController
+        return viewController
+    }()
+    
+    private let profileViewController: ProfileViewController = {
+        let viewController = ProfileViewController()
+        let interactor = ProfileInteractor()
+        let presenter = ProfilePresenter()
+        let worker = ProfileWorker()
+        let router = ProfileRouter()
+        viewController.output = interactor
+        viewController.router = router
+        interactor.output = presenter
+        presenter.output = viewController
+        return viewController
+    }()
+    
+    private let loginViewController: LoginViewController = {
+        let viewController = LoginViewController()
+        let interactor = LoginInteractor()
+        let presenter = LoginPresenter()
+        let worker = LoginWorker()
+        let router = LoginRouter()
+        viewController.output = interactor
+        viewController.router = router
         interactor.output = presenter
         presenter.output = viewController
         return viewController
@@ -30,7 +57,7 @@ class TabBarViewController: UITabBarController {
     }
     
     private func initializeViewControllers() {
-        
+        viewControllers = [searchViewController, profileViewController, loginViewController]
     }
     
     required init?(coder aDecoder: NSCoder) {

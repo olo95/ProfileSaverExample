@@ -8,6 +8,15 @@
 
 import UIKit
 
+protocol ProfileViewControllerInput: class {
+    
+}
+
 class ProfileViewController: UIViewController {
+    weak var output: ProfileInteractorInput?
+    weak var router: ProfileRouterInput?
+}
+
+extension ProfileViewController: ProfileViewControllerInput {
     
 }

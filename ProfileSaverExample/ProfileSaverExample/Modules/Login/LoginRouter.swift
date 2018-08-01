@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol LoginRouterInput: class {
+    
+}
+
+class LoginRouter {
+    
+}
+
+extension LoginRouter: LoginRouterInput {
+    
+}

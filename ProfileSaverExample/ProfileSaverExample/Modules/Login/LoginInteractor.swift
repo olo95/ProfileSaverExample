@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol LoginInteractorInput: class {
+    
+}
+
+class LoginInteractor {
+    weak var output: LoginPresenterInput?
+}
+
+extension LoginInteractor: LoginInteractorInput {
+    
+}
