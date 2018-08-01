@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+protocol SearchInteractorInput: class {
+    
+}
+
+protocol SearchInteractorOutput: class {
+    
+}
+
+class SearchInteractor {
+    weak var output: SearchPresenterInput?
+}
+
+extension SearchInteractor: SearchViewControllerOutput {
+    
+}

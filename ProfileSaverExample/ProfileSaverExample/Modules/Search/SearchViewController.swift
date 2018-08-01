@@ -6,4 +6,20 @@
 //  Copyright © 2018 Alexander Stolar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol SearchViewControllerInput: class {
+    
+}
+
+protocol SearchViewControllerOutput: class {
+    
+}
+
+class SearchViewController: UIViewController {
+    weak var output: SearchInteractorInput?
+}
+
+extension SearchViewController: SearchPresenterOutput {
+    
+}

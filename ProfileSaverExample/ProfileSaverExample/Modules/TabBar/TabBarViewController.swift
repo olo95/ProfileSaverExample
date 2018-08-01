@@ -11,7 +11,21 @@ import UIKit
 class TabBarViewController: UITabBarController {
     
     static let shared = TabBarViewController()
+    
+    private let searchViewController: SearchViewController = {
+        let viewController = SearchViewController()
+        let interactor = SearchInteractor()
+        let presenter = SearchPresenter()
+        let worker = SearchWorker()
+        let router = SearchRouter()
+        viewController.output = interactor
+        interactor.output = presenter
+        presenter.output = viewController
+        return viewController
+    }()
+    
     private init() {
+        super.init(nibName: nil, bundle: nil)
         initializeViewControllers()
     }
     

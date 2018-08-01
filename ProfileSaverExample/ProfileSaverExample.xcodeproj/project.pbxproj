@@ -17,6 +17,22 @@
 		ECC7FE3C2111CD1A00ADFFD2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE3B2111CD1A00ADFFD2 /* SearchViewController.swift */; };
 		ECC7FE3E2111CD2D00ADFFD2 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE3D2111CD2D00ADFFD2 /* SearchInteractor.swift */; };
 		ECC7FE402111CD3900ADFFD2 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE3F2111CD3900ADFFD2 /* SearchPresenter.swift */; };
+		ECC7FE452111D14F00ADFFD2 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE442111D14F00ADFFD2 /* ColorTheme.swift */; };
+		ECC7FE472111D58F00ADFFD2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE462111D58F00ADFFD2 /* ProfileViewController.swift */; };
+		ECC7FE492111D59700ADFFD2 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE482111D59700ADFFD2 /* ProfileInteractor.swift */; };
+		ECC7FE4B2111D5A500ADFFD2 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE4A2111D5A500ADFFD2 /* ProfilePresenter.swift */; };
+		ECC7FE4D2111D5AE00ADFFD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE4C2111D5AE00ADFFD2 /* LoginViewController.swift */; };
+		ECC7FE4F2111D5BB00ADFFD2 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE4E2111D5BB00ADFFD2 /* LoginInteractor.swift */; };
+		ECC7FE512111D5C400ADFFD2 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE502111D5C400ADFFD2 /* LoginPresenter.swift */; };
+		ECC7FE532111D75800ADFFD2 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE522111D75800ADFFD2 /* SearchRouter.swift */; };
+		ECC7FE552111D76400ADFFD2 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE542111D76400ADFFD2 /* ProfileRouter.swift */; };
+		ECC7FE572111D76D00ADFFD2 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE562111D76D00ADFFD2 /* LoginRouter.swift */; };
+		ECC7FE592111DC2500ADFFD2 /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE582111DC2500ADFFD2 /* SearchWorker.swift */; };
+		ECC7FE5B2111DC3600ADFFD2 /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE5A2111DC3600ADFFD2 /* ProfileWorker.swift */; };
+		ECC7FE5D2111DC4000ADFFD2 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE5C2111DC4000ADFFD2 /* LoginWorker.swift */; };
+		ECC7FE652111F38400ADFFD2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE642111F38400ADFFD2 /* SearchView.swift */; };
+		ECC7FE672111F38D00ADFFD2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE662111F38D00ADFFD2 /* ProfileView.swift */; };
+		ECC7FE692111F39C00ADFFD2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE682111F39C00ADFFD2 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +63,22 @@
 		ECC7FE3B2111CD1A00ADFFD2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ECC7FE3D2111CD2D00ADFFD2 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		ECC7FE3F2111CD3900ADFFD2 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		ECC7FE442111D14F00ADFFD2 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		ECC7FE462111D58F00ADFFD2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		ECC7FE482111D59700ADFFD2 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		ECC7FE4A2111D5A500ADFFD2 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		ECC7FE4C2111D5AE00ADFFD2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ECC7FE4E2111D5BB00ADFFD2 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		ECC7FE502111D5C400ADFFD2 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		ECC7FE522111D75800ADFFD2 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		ECC7FE542111D76400ADFFD2 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		ECC7FE562111D76D00ADFFD2 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		ECC7FE582111DC2500ADFFD2 /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
+		ECC7FE5A2111DC3600ADFFD2 /* ProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorker.swift; sourceTree = "<group>"; };
+		ECC7FE5C2111DC4000ADFFD2 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		ECC7FE642111F38400ADFFD2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		ECC7FE662111F38D00ADFFD2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		ECC7FE682111F39C00ADFFD2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FCB753AA0E130D51F00057AA /* Pods_ProfileSaverExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProfileSaverExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +180,12 @@
 		ECC7FE352111C74700ADFFD2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				ECC7FE4C2111D5AE00ADFFD2 /* LoginViewController.swift */,
+				ECC7FE4E2111D5BB00ADFFD2 /* LoginInteractor.swift */,
+				ECC7FE502111D5C400ADFFD2 /* LoginPresenter.swift */,
+				ECC7FE562111D76D00ADFFD2 /* LoginRouter.swift */,
+				ECC7FE5C2111DC4000ADFFD2 /* LoginWorker.swift */,
+				ECC7FE682111F39C00ADFFD2 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -155,6 +193,12 @@
 		ECC7FE362111C74D00ADFFD2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				ECC7FE462111D58F00ADFFD2 /* ProfileViewController.swift */,
+				ECC7FE482111D59700ADFFD2 /* ProfileInteractor.swift */,
+				ECC7FE4A2111D5A500ADFFD2 /* ProfilePresenter.swift */,
+				ECC7FE542111D76400ADFFD2 /* ProfileRouter.swift */,
+				ECC7FE5A2111DC3600ADFFD2 /* ProfileWorker.swift */,
+				ECC7FE662111F38D00ADFFD2 /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -165,6 +209,9 @@
 				ECC7FE3B2111CD1A00ADFFD2 /* SearchViewController.swift */,
 				ECC7FE3D2111CD2D00ADFFD2 /* SearchInteractor.swift */,
 				ECC7FE3F2111CD3900ADFFD2 /* SearchPresenter.swift */,
+				ECC7FE522111D75800ADFFD2 /* SearchRouter.swift */,
+				ECC7FE582111DC2500ADFFD2 /* SearchWorker.swift */,
+				ECC7FE642111F38400ADFFD2 /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -194,6 +241,7 @@
 		ECC7FE432111CD6800ADFFD2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ECC7FE442111D14F00ADFFD2 /* ColorTheme.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -362,11 +410,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC7FE512111D5C400ADFFD2 /* LoginPresenter.swift in Sources */,
+				ECC7FE652111F38400ADFFD2 /* SearchView.swift in Sources */,
 				ECC7FE3C2111CD1A00ADFFD2 /* SearchViewController.swift in Sources */,
+				ECC7FE4F2111D5BB00ADFFD2 /* LoginInteractor.swift in Sources */,
 				ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */,
 				ECC7FE402111CD3900ADFFD2 /* SearchPresenter.swift in Sources */,
+				ECC7FE5D2111DC4000ADFFD2 /* LoginWorker.swift in Sources */,
+				ECC7FE452111D14F00ADFFD2 /* ColorTheme.swift in Sources */,
+				ECC7FE552111D76400ADFFD2 /* ProfileRouter.swift in Sources */,
+				ECC7FE472111D58F00ADFFD2 /* ProfileViewController.swift in Sources */,
+				ECC7FE572111D76D00ADFFD2 /* LoginRouter.swift in Sources */,
+				ECC7FE4B2111D5A500ADFFD2 /* ProfilePresenter.swift in Sources */,
+				ECC7FE5B2111DC3600ADFFD2 /* ProfileWorker.swift in Sources */,
 				ECC7FE3E2111CD2D00ADFFD2 /* SearchInteractor.swift in Sources */,
+				ECC7FE492111D59700ADFFD2 /* ProfileInteractor.swift in Sources */,
+				ECC7FE692111F39C00ADFFD2 /* LoginView.swift in Sources */,
+				ECC7FE4D2111D5AE00ADFFD2 /* LoginViewController.swift in Sources */,
+				ECC7FE592111DC2500ADFFD2 /* SearchWorker.swift in Sources */,
 				EC9A37B32111C60000F481D5 /* AppDelegate.swift in Sources */,
+				ECC7FE672111F38D00ADFFD2 /* ProfileView.swift in Sources */,
+				ECC7FE532111D75800ADFFD2 /* SearchRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
