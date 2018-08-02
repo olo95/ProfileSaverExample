@@ -87,8 +87,7 @@ class TabBarViewController: UITabBarController {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
                     imageView.transform = increaseSizeRotationTransform
                 })
-                
-                UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.5, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
                     imageView.transform = CGAffineTransform.identity
                 })
             }, completion: nil)
