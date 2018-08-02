@@ -15,6 +15,14 @@ protocol LoginViewControllerInput: class {
 class LoginViewController: UIViewController {
     weak var output: LoginInteractorInput?
     weak var router: LoginRouterInput?
+    
+    private lazy var mainView: LoginView = {
+        return view as! LoginView
+    }()
+    
+    override func loadView() {
+        view = LoginView()
+    }
 }
 
 extension LoginViewController: LoginViewControllerInput {

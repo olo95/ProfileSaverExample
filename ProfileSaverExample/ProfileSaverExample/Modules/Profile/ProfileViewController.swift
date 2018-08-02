@@ -15,6 +15,14 @@ protocol ProfileViewControllerInput: class {
 class ProfileViewController: UIViewController {
     weak var output: ProfileInteractorInput?
     weak var router: ProfileRouterInput?
+    
+    private lazy var mainView: ProfileView = {
+        return view as! ProfileView
+    }()
+    
+    override func loadView() {
+        view = ProfileView()
+    }
 }
 
 extension ProfileViewController: ProfileViewControllerInput {

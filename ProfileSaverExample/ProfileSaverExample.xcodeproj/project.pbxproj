@@ -145,6 +145,7 @@
 		EC9A37B12111C60000F481D5 /* ProfileSaverExample */ = {
 			isa = PBXGroup;
 			children = (
+				ECB8C84221135F7200438AFF /* Models */,
 				ECC7FE432111CD6800ADFFD2 /* Utils */,
 				ECC7FE422111CD6100ADFFD2 /* Extensions */,
 				ECC7FE412111CD5900ADFFD2 /* API */,
@@ -164,6 +165,13 @@
 				EC9A37C92111C60100F481D5 /* Info.plist */,
 			);
 			path = ProfileSaverExampleTests;
+			sourceTree = "<group>";
+		};
+		ECB8C84221135F7200438AFF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		ECC7FE342111C74100ADFFD2 /* Modules */ = {

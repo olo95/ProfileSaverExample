@@ -10,4 +10,12 @@ import SnapKit
 
 class ProfileView: UIView {
     
+    init() {
+        super.init(frame: .zero)
+        backgroundColor = UIColor.blue
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
