@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>APISecretAccesKey</key>
+	<string>b4284fb86767f1c78829809840d35a7881992ba8161dea06f279c326352dcfb8</string>
+	<key>BaseOauthURL</key>
+	<string>https://unsplash.com/oauth/authorize</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

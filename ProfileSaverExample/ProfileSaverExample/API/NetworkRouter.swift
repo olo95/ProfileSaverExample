@@ -9,5 +9,45 @@
 import Foundation
 
 enum NetworkRouter {
+    case authorize
+    case token
+    
+    var path: String? {
+        switch self {
+        default:
+            return ""
+        }
+    }
+    
+    var requestType: String? {
+        switch self {
+        default:
+            return "GET"
+        }
+    }
+    
+    var parameters: [URLQueryItem]? {
+        switch self {
+        case .authorize:
+            return nil
+        default:
+            return []
+        }
+    }
+    
+    var bodyParameters: Data? {
+        switch self {
+        default:
+            return nil
+        }
+    }
+    
+    var headers: [(key: String, value: String)]? {
+        switch self {
+        default:
+            return []
+        }
+    }
+    
     
 }
