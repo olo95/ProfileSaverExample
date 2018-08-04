@@ -12,6 +12,8 @@
 		EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD3102113ACD000605E03 /* KeychainManager.swift */; };
 		EC84DF852115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */; };
 		EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8514242114AA2800860E50 /* InfoPlist.swift */; };
+		EC95E8B621160C01007119AC /* RequestTokenBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B521160C01007119AC /* RequestTokenBody.swift */; };
+		EC95E8B8211610B6007119AC /* RequestTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B7211610B6007119AC /* RequestTokenResponse.swift */; };
 		EC9A37B32111C60000F481D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A37B22111C60000F481D5 /* AppDelegate.swift */; };
 		EC9A37BA2111C60100F481D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9A37B92111C60100F481D5 /* Assets.xcassets */; };
 		EC9A37BD2111C60100F481D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9A37BB2111C60100F481D5 /* LaunchScreen.storyboard */; };
@@ -59,6 +61,8 @@
 		EC4DD3102113ACD000605E03 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverInfoPlistTests.swift; sourceTree = "<group>"; };
 		EC8514242114AA2800860E50 /* InfoPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
+		EC95E8B521160C01007119AC /* RequestTokenBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenBody.swift; sourceTree = "<group>"; };
+		EC95E8B7211610B6007119AC /* RequestTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenResponse.swift; sourceTree = "<group>"; };
 		EC9A37AF2111C60000F481D5 /* ProfileSaverExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileSaverExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9A37B22111C60000F481D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9A37B92111C60100F481D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				EC8514242114AA2800860E50 /* InfoPlist.swift */,
+				EC95E8B521160C01007119AC /* RequestTokenBody.swift */,
+				EC95E8B7211610B6007119AC /* RequestTokenResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -448,8 +454,10 @@
 				ECC7FE472111D58F00ADFFD2 /* ProfileViewController.swift in Sources */,
 				ECC7FE572111D76D00ADFFD2 /* LoginRouter.swift in Sources */,
 				ECC7FE4B2111D5A500ADFFD2 /* ProfilePresenter.swift in Sources */,
+				EC95E8B621160C01007119AC /* RequestTokenBody.swift in Sources */,
 				ECC7FE5B2111DC3600ADFFD2 /* ProfileWorker.swift in Sources */,
 				EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */,
+				EC95E8B8211610B6007119AC /* RequestTokenResponse.swift in Sources */,
 				ECC7FE3E2111CD2D00ADFFD2 /* SearchInteractor.swift in Sources */,
 				ECC7FE492111D59700ADFFD2 /* ProfileInteractor.swift in Sources */,
 				ECC7FE692111F39C00ADFFD2 /* LoginView.swift in Sources */,

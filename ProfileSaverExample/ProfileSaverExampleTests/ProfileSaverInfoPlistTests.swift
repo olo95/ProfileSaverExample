@@ -13,13 +13,25 @@ class ProfileSaverInfoPlistTests: XCTestCase {
     
     func testInfoPlistParsing() {
         guard let url = Bundle.main.url(forResource: "Info", withExtension: "plist") else {
-            assert(false, "CANT FIND INFO PLIST FILE")
+            XCTAssert(false, "CANT FIND INFO PLIST FILE")
+            return
         }
         
         guard let data = try? Data(contentsOf: url),
               let _ = try? PropertyListDecoder().decode(InfoPlist.self, from: data) else {
-                assert(false, "COULDN'T PARSE PLIST FILE INTO INFOPLIST STRUCT")
+                XCTAssert(false, "COULDN'T PARSE PLIST FILE INTO INFOPLIST STRUCT")
+                return
         }
+    }
+    
+    func testInfoPlistUrls() {
+        guard let infoPlist = InfoPlist.shared else {
+            XCTAssert(false, "COULDN'T RETRIEVIE VALID INFO.PLIST")
+            return
+        }
+        XCTAssert((URL(string: infoPlist.baseUrl) != nil), "BASE URL IS NOT VALID")
+        XCTAssert((URL(string: infoPlist.baseOauthUrl) != nil), "BASE OAUTH URL IS NOT VALID")
+        XCTAssert((URL(string: infoPlist.redirectUri) != nil), "REDIRECT URI IS NOT VALID")
     }
     
     override func setUp() {

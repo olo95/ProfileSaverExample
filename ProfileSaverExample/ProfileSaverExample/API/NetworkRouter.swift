@@ -13,46 +13,48 @@ enum NetworkRouter {
     case token(code : String)
     
     var path: String? {
+        guard let infoPlist = InfoPlist.shared else { return nil }
         switch self {
-        default:
-            return ""
+        case .authorize:
+            guard var urlComponents = URLComponents(string: infoPlist.baseOauthUrl + "authorize") else { return nil }
+            urlComponents.queryItems = NetworkRouter.authorize.parameters
+            return urlComponents.url?.absoluteString
+        case .token:
+            return URL(string: infoPlist.baseOauthUrl + "token")?.absoluteString
         }
     }
     
     var requestType: String? {
         switch self {
-        default:
-            return "GET"
+        case .authorize: return nil
+        case .token: return "POST"
         }
     }
     
-    var parameters: [URLQueryItem]? {
-        guard let infoPlist = InfoPlist.getInfoPlist() else { return nil }
+    private var parameters: [URLQueryItem] {
+        guard let infoPlist = InfoPlist.shared else { return [] }
         switch self {
         case .authorize:
             return [URLQueryItem(name: "client_id", value: infoPlist.apiAccessKey),
                     URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri),
                     URLQueryItem(name: "response_type", value: "code"),
                     URLQueryItem(name: "scope", value: "public+read_user")]
-        case .token(let code):
-            return [URLQueryItem(name: "client_id", value: infoPlist.apiAccessKey),
-                    URLQueryItem(name: "client_secret", value: infoPlist.apiSecretAccessKey),
-                    URLQueryItem(name: "redirect_uri", value: ""),
-                    URLQueryItem(name: "code", value: code),
-                    URLQueryItem(name: "grant_type", value: "authorization_code")]
-        default:
+        case .token:
             return []
         }
     }
     
-    var bodyParameters: Data? {
+    private var bodyParameters: Data? {
         switch self {
+        case .token(let code):
+            guard let requestTokenBody = RequestTokenBody(with: code) else { return nil }
+            return try? JSONEncoder().encode(requestTokenBody)
         default:
             return nil
         }
     }
     
-    var headers: [(key: String, value: String)]? {
+    var headers: [(key: String, value: String)] {
         switch self {
         default:
             return []

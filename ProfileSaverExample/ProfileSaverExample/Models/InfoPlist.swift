@@ -9,6 +9,8 @@
 import Foundation
 
 struct InfoPlist {
+    
+    static let shared: InfoPlist? = getInfoPlist()
     var baseUrl: String
     var baseOauthUrl: String
     var redirectUri: String
@@ -26,7 +28,7 @@ struct InfoPlist {
 
 extension InfoPlist: Decodable {
     
-    static func getInfoPlist() -> InfoPlist? {
+    private static func getInfoPlist() -> InfoPlist? {
         guard let url = Bundle.main.url(forResource: "Info", withExtension: "plist"),
               let data = try? Data(contentsOf: url) else { return nil }
         
