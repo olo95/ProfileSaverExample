@@ -10,7 +10,7 @@ import Foundation
 
 enum NetworkRouter {
     case authorize
-    case token
+    case token(code : String)
     
     var path: String? {
         switch self {
@@ -27,9 +27,19 @@ enum NetworkRouter {
     }
     
     var parameters: [URLQueryItem]? {
+        guard let infoPlist = InfoPlist.getInfoPlist() else { return nil }
         switch self {
         case .authorize:
-            return nil
+            return [URLQueryItem(name: "client_id", value: infoPlist.apiAccessKey),
+                    URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri),
+                    URLQueryItem(name: "response_type", value: "code"),
+                    URLQueryItem(name: "scope", value: "public+read_user")]
+        case .token(let code):
+            return [URLQueryItem(name: "client_id", value: infoPlist.apiAccessKey),
+                    URLQueryItem(name: "client_secret", value: infoPlist.apiSecretAccessKey),
+                    URLQueryItem(name: "redirect_uri", value: ""),
+                    URLQueryItem(name: "code", value: code),
+                    URLQueryItem(name: "grant_type", value: "authorization_code")]
         default:
             return []
         }

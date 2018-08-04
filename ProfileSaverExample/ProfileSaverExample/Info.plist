@@ -6,6 +6,8 @@
 	<string>b4284fb86767f1c78829809840d35a7881992ba8161dea06f279c326352dcfb8</string>
 	<key>BaseOauthURL</key>
 	<string>https://unsplash.com/oauth/authorize</string>
+    <key>RedirectURI</key>
+    <string>ProfileSaverExample</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
