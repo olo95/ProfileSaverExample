@@ -12,4 +12,12 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     private init() {}
+    
+    func authorize() {
+        
+    }
+    
+    func requestToken() {
+        
+    }
 }

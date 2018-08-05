@@ -36,7 +36,7 @@ enum NetworkRouter {
         switch self {
         case .authorize:
             return [URLQueryItem(name: "client_id", value: infoPlist.apiAccessKey),
-                    URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri),
+                    URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri + "://bolo.com"),
                     URLQueryItem(name: "response_type", value: "code"),
                     URLQueryItem(name: "scope", value: "public+read_user")]
         case .token:

@@ -14,10 +14,12 @@
 		EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8514242114AA2800860E50 /* InfoPlist.swift */; };
 		EC95E8B621160C01007119AC /* RequestTokenBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B521160C01007119AC /* RequestTokenBody.swift */; };
 		EC95E8B8211610B6007119AC /* RequestTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B7211610B6007119AC /* RequestTokenResponse.swift */; };
+		EC95E8BA21161FB9007119AC /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B921161FB9007119AC /* KeychainPasswordItem.swift */; };
 		EC9A37B32111C60000F481D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A37B22111C60000F481D5 /* AppDelegate.swift */; };
 		EC9A37BA2111C60100F481D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9A37B92111C60100F481D5 /* Assets.xcassets */; };
 		EC9A37BD2111C60100F481D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9A37BB2111C60100F481D5 /* LaunchScreen.storyboard */; };
 		EC9A37C82111C60100F481D5 /* ProfileSaverExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A37C72111C60100F481D5 /* ProfileSaverExampleTests.swift */; };
+		ECA0D849211731BC00830971 /* ProfileSaverKeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D848211731BC00830971 /* ProfileSaverKeychainTests.swift */; };
 		ECB8C844211364F200438AFF /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C843211364F200438AFF /* NetworkRouter.swift */; };
 		ECB8C846211364FF00438AFF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C845211364FF00438AFF /* NetworkManager.swift */; };
 		ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */; };
@@ -63,6 +65,7 @@
 		EC8514242114AA2800860E50 /* InfoPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		EC95E8B521160C01007119AC /* RequestTokenBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenBody.swift; sourceTree = "<group>"; };
 		EC95E8B7211610B6007119AC /* RequestTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenResponse.swift; sourceTree = "<group>"; };
+		EC95E8B921161FB9007119AC /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		EC9A37AF2111C60000F481D5 /* ProfileSaverExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileSaverExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9A37B22111C60000F481D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9A37B92111C60100F481D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		EC9A37C32111C60100F481D5 /* ProfileSaverExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProfileSaverExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9A37C72111C60100F481D5 /* ProfileSaverExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverExampleTests.swift; sourceTree = "<group>"; };
 		EC9A37C92111C60100F481D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECA0D848211731BC00830971 /* ProfileSaverKeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverKeychainTests.swift; sourceTree = "<group>"; };
 		ECB8C843211364F200438AFF /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		ECB8C845211364FF00438AFF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		EC9A37C62111C60100F481D5 /* ProfileSaverExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				ECA0D848211731BC00830971 /* ProfileSaverKeychainTests.swift */,
 				EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */,
 				EC9A37C72111C60100F481D5 /* ProfileSaverExampleTests.swift */,
 				EC9A37C92111C60100F481D5 /* Info.plist */,
@@ -188,6 +193,7 @@
 				EC8514242114AA2800860E50 /* InfoPlist.swift */,
 				EC95E8B521160C01007119AC /* RequestTokenBody.swift */,
 				EC95E8B7211610B6007119AC /* RequestTokenResponse.swift */,
+				EC95E8B921161FB9007119AC /* KeychainPasswordItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				ECB8C846211364FF00438AFF /* NetworkManager.swift in Sources */,
 				ECC7FE512111D5C400ADFFD2 /* LoginPresenter.swift in Sources */,
 				ECB8C844211364F200438AFF /* NetworkRouter.swift in Sources */,
+				EC95E8BA21161FB9007119AC /* KeychainPasswordItem.swift in Sources */,
 				ECC7FE652111F38400ADFFD2 /* SearchView.swift in Sources */,
 				ECC7FE3C2111CD1A00ADFFD2 /* SearchViewController.swift in Sources */,
 				ECC7FE4F2111D5BB00ADFFD2 /* LoginInteractor.swift in Sources */,
@@ -473,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA0D849211731BC00830971 /* ProfileSaverKeychainTests.swift in Sources */,
 				EC84DF852115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift in Sources */,
 				EC9A37C82111C60100F481D5 /* ProfileSaverExampleTests.swift in Sources */,
 			);
