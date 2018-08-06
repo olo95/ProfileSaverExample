@@ -22,6 +22,7 @@
 		ECA0D849211731BC00830971 /* ProfileSaverKeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D848211731BC00830971 /* ProfileSaverKeychainTests.swift */; };
 		ECA0D84B2117448400830971 /* WebModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84A2117448400830971 /* WebModalView.swift */; };
 		ECA0D84E211744B000830971 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84D211744B000830971 /* WebModalViewController.swift */; };
+		ECA0D8502118B2E500830971 /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84F2118B2E500830971 /* KeychainConstants.swift */; };
 		ECB8C844211364F200438AFF /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C843211364F200438AFF /* NetworkRouter.swift */; };
 		ECB8C846211364FF00438AFF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C845211364FF00438AFF /* NetworkManager.swift */; };
 		ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */; };
@@ -79,6 +80,7 @@
 		ECA0D848211731BC00830971 /* ProfileSaverKeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverKeychainTests.swift; sourceTree = "<group>"; };
 		ECA0D84A2117448400830971 /* WebModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalView.swift; sourceTree = "<group>"; };
 		ECA0D84D211744B000830971 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
+		ECA0D84F2118B2E500830971 /* KeychainConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
 		ECB8C843211364F200438AFF /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		ECB8C845211364FF00438AFF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC7FE442111D14F00ADFFD2 /* ColorTheme.swift */,
+				ECA0D84F2118B2E500830971 /* KeychainConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				ECC7FE5D2111DC4000ADFFD2 /* LoginWorker.swift in Sources */,
 				ECC7FE452111D14F00ADFFD2 /* ColorTheme.swift in Sources */,
 				ECC7FE552111D76400ADFFD2 /* ProfileRouter.swift in Sources */,
+				ECA0D8502118B2E500830971 /* KeychainConstants.swift in Sources */,
 				ECC7FE472111D58F00ADFFD2 /* ProfileViewController.swift in Sources */,
 				ECC7FE572111D76D00ADFFD2 /* LoginRouter.swift in Sources */,
 				ECC7FE4B2111D5A500ADFFD2 /* ProfilePresenter.swift in Sources */,
@@ -646,6 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T289F6WJGZ;
 				INFOPLIST_FILE = ProfileSaverExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -665,6 +670,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T289F6WJGZ;
 				INFOPLIST_FILE = ProfileSaverExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

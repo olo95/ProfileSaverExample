@@ -13,8 +13,8 @@ protocol SearchViewControllerInput: class {
 }
 
 class SearchViewController: UIViewController {
-    weak var output: SearchInteractorInput?
-    weak var router: SearchRouterInput?
+    var output: SearchInteractorInput?
+    var router: SearchRouterInput?
     
     private lazy var mainView: SearchView = {
        return view as! SearchView

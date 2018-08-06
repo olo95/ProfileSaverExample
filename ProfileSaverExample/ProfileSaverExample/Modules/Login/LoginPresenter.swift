@@ -9,13 +9,15 @@
 import Foundation
 
 protocol LoginPresenterInput: class {
-    
+    func present(webModalViewController: WebModalViewController)
 }
 
 class LoginPresenter {
-    weak var output: LoginViewControllerInput?
+    var output: LoginViewControllerInput?
 }
 
 extension LoginPresenter: LoginPresenterInput {
-    
+    func present(webModalViewController: WebModalViewController) {
+        output?.present(webModalViewController: webModalViewController)
+    }
 }

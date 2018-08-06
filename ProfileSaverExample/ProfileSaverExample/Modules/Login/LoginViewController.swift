@@ -9,12 +9,12 @@
 import UIKit
 
 protocol LoginViewControllerInput: class {
-    
+    func present(webModalViewController: WebModalViewController)
 }
 
 class LoginViewController: UIViewController {
-    weak var output: LoginInteractorInput?
-    weak var router: LoginRouterInput?
+    var output: LoginInteractorInput?
+    var router: LoginRouterInput?
     
     private lazy var mainView: LoginView = {
         return view as! LoginView
@@ -23,8 +23,21 @@ class LoginViewController: UIViewController {
     override func loadView() {
         view = LoginView()
     }
+    
+    override func viewDidLoad() {
+        if let navigationController = navigationController {
+            router = LoginRouter(navigationController: navigationController)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        KeychainManager.shared.isValidatedTokenExist ? output?.onUserLoggedIn() : output?.onUserNotLoggedIn()
+    }
 }
 
 extension LoginViewController: LoginViewControllerInput {
-    
+    func present(webModalViewController: WebModalViewController) {
+        router?.present(viewController: webModalViewController)
+    }
 }

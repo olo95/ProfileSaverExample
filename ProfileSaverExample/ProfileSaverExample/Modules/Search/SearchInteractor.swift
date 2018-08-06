@@ -13,7 +13,7 @@ protocol SearchInteractorInput: class {
 }
 
 class SearchInteractor {
-    weak var output: SearchPresenterInput?
+    var output: SearchPresenterInput?
 }
 
 extension SearchInteractor: SearchInteractorInput {

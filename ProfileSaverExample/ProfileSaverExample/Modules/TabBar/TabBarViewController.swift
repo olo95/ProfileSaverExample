@@ -10,16 +10,11 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    static let shared = TabBarViewController()
-    
     private let searchViewController: SearchViewController = {
         let viewController = SearchViewController()
         let interactor = SearchInteractor()
         let presenter = SearchPresenter()
-        let worker = SearchWorker()
-        let router = SearchRouter()
         viewController.output = interactor
-        viewController.router = router
         interactor.output = presenter
         presenter.output = viewController
         
@@ -32,10 +27,7 @@ class TabBarViewController: UITabBarController {
         let viewController = ProfileViewController()
         let interactor = ProfileInteractor()
         let presenter = ProfilePresenter()
-        let worker = ProfileWorker()
-        let router = ProfileRouter()
         viewController.output = interactor
-        viewController.router = router
         interactor.output = presenter
         presenter.output = viewController
         
@@ -48,10 +40,7 @@ class TabBarViewController: UITabBarController {
         let viewController = LoginViewController()
         let interactor = LoginInteractor()
         let presenter = LoginPresenter()
-        let worker = LoginWorker()
-        let router = LoginRouter()
         viewController.output = interactor
-        viewController.router = router
         interactor.output = presenter
         presenter.output = viewController
         
@@ -60,7 +49,7 @@ class TabBarViewController: UITabBarController {
         return viewController
     }()
     
-    private init() {
+    init() {
         super.init(nibName: nil, bundle: nil)
         customizeTabBar()
         initializeViewControllers()
@@ -71,7 +60,9 @@ class TabBarViewController: UITabBarController {
     }
     
     private func initializeViewControllers() {
-        viewControllers = [searchViewController, profileViewController, loginViewController]
+        setViewControllers([searchViewController, profileViewController, loginViewController]
+            .map { UINavigationController(rootViewController: $0)}
+            , animated: false)
     }
     
     required init?(coder aDecoder: NSCoder) {

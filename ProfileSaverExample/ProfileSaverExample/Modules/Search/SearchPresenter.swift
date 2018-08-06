@@ -13,7 +13,7 @@ protocol SearchPresenterInput: class {
 }
 
 class SearchPresenter {
-    weak var output: SearchViewControllerInput?
+    var output: SearchViewControllerInput?
 }
 
 extension SearchPresenter: SearchPresenterInput {

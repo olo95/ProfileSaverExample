@@ -9,13 +9,21 @@
 import Foundation
 
 protocol LoginInteractorInput: class {
-    
+    func onUserNotLoggedIn()
+    func onUserLoggedIn()
 }
 
 class LoginInteractor {
-    weak var output: LoginPresenterInput?
+    var output: LoginPresenterInput?
 }
 
 extension LoginInteractor: LoginInteractorInput {
+    func onUserNotLoggedIn() {
+        guard let stringPath = NetworkRouter.authorize.path, let authorizeUrl = URL(string: stringPath) else { return }
+        output?.present(webModalViewController: WebModalViewController(with: authorizeUrl))
+    }
     
+    func onUserLoggedIn() {
+        //download user with token
+    }
 }

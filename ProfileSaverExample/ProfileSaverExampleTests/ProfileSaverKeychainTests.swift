@@ -11,23 +11,18 @@ import XCTest
 
 class ProfileSaverKeychainTests: XCTestCase {
     
-    private let testService = "testService"
-    private let testAccount = "testAccount"
-    private let testTokenService = "testTokenService"
-    private let testTokenAccount = "testTokenAccount"
-    
     func testSimpleWrite() {
-        let keychainItem = KeychainPasswordItem(service: testService, account: testAccount)
+        let keychainItem = KeychainPasswordItem(service: KeychainConstants.testService, account: KeychainConstants.testAccount)
         do {
             try keychainItem.savePassword("testPassword")
         } catch {
             XCTAssert(false, "KEYCHAIN WRITE FAILED")
         }
-        testDelete()
+        testSimpleDelete()
     }
     
     func testSimpleWriteRead() {
-        let keychainItem = KeychainPasswordItem(service: testService, account: testAccount)
+        let keychainItem = KeychainPasswordItem(service: KeychainConstants.testService, account: KeychainConstants.testAccount)
         do {
             try keychainItem.savePassword("testPassword")
         } catch {
@@ -35,25 +30,25 @@ class ProfileSaverKeychainTests: XCTestCase {
         }
         
         do {
-            try KeychainPasswordItem(service: testService, account: testAccount).readPassword()
+            try KeychainPasswordItem(service: KeychainConstants.testService, account: KeychainConstants.testAccount).readPassword()
         } catch {
             XCTAssert(false, "KEYCHAIN LOAD FAILED")
         }
-        testDelete()
+        testSimpleDelete()
     }
     
-    func testDelete() {
+    func testSimpleDelete() {
         do {
-            try KeychainPasswordItem(service: testService, account: testAccount).deleteItem()
+            try KeychainPasswordItem(service: KeychainConstants.testService, account: KeychainConstants.testAccount).deleteItem()
         } catch {
             XCTAssert(false, "KEYCHAIN DELETION FAILED")
         }
     }
     
     func testEmptyRecordRead() {
-        testDelete()
+        testSimpleDelete()
         do {
-            try KeychainPasswordItem(service: testService, account: testAccount).readPassword()
+            try KeychainPasswordItem(service: KeychainConstants.testService, account: KeychainConstants.testAccount).readPassword()
         } catch {
             XCTAssert(true)
             return
@@ -62,14 +57,15 @@ class ProfileSaverKeychainTests: XCTestCase {
     }
     
     func testRawTokenUnpack() {
-        testDelete()
         XCTAssertTrue((KeychainManager.shared.unpack(rawToken: "asdjubijugbsdjgb3245352nb35;1231213515") != nil))
         XCTAssertFalse((KeychainManager.shared.unpack(rawToken: "asdjubijugbsdjgb3245352nb351231213515") != nil))
         XCTAssertFalse((KeychainManager.shared.unpack(rawToken: "asdjubijugbsdjgb;3245352nb35;1231213515") != nil))
+        XCTAssertFalse((KeychainManager.shared.unpack(rawToken: "asdjubijugbsdjgb3245352nb35;123asd213515") != nil))
     }
     
     func testEmptyToken() {
-        XCTAssertFalse(KeychainManager.shared.isValidatedTokenExist)
+        XCTAssert(((try? KeychainManager.shared.remove(account: KeychainConstants.testTokenAccount, with: KeychainConstants.testTokenService)) != nil))
+        XCTAssertFalse(((try? KeychainManager.shared.load(account: KeychainConstants.testTokenAccount, with: KeychainConstants.testTokenService)) != nil))
     }
     
     override func setUp() {

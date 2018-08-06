@@ -13,7 +13,7 @@ protocol ProfilePresenterInput: class {
 }
 
 class ProfilePresenter {
-    weak var output: ProfileViewControllerInput?
+    var output: ProfileViewControllerInput?
 }
 
 extension ProfilePresenter: ProfilePresenterInput {

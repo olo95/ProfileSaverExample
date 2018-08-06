@@ -13,8 +13,8 @@ protocol ProfileViewControllerInput: class {
 }
 
 class ProfileViewController: UIViewController {
-    weak var output: ProfileInteractorInput?
-    weak var router: ProfileRouterInput?
+    var output: ProfileInteractorInput?
+    var router: ProfileRouterInput?
     
     private lazy var mainView: ProfileView = {
         return view as! ProfileView
@@ -22,10 +22,6 @@ class ProfileViewController: UIViewController {
     
     override func loadView() {
         view = ProfileView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
 }
 

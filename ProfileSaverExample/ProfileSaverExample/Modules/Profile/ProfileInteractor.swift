@@ -13,7 +13,7 @@ protocol ProfileInteractorInput: class {
 }
 
 class ProfileInteractor {
-    weak var output: ProfilePresenterInput?
+    var output: ProfilePresenterInput?
 }
 
 extension ProfileInteractor: ProfileInteractorInput {
