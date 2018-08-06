@@ -21,7 +21,7 @@ class LoginRouter {
 
 extension LoginRouter: LoginRouterInput {
     func present(viewController: UIViewController) {
-        navigationController.modalPresentationStyle = .overCurrentContext
+        viewController.modalPresentationStyle = .overCurrentContext
         navigationController.present(viewController, animated: true, completion: nil)
     }
 }

@@ -11,11 +11,18 @@ import SnapKit
 class WebModalView: UIView {
     
     var rootContainerTopConstraint: Constraint?
+    var rootContainerBottomConstraint: Constraint?
     
     let dismissIndicatorView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = ColorTheme.onPrimary.value
         view.layer.cornerRadius = 2
+        return view
+    }()
+    
+    let dismissView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -29,7 +36,9 @@ class WebModalView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .clear
+        isOpaque = false
         setRootContainer()
+        setDismissView()
         setDismissIndicatorView()
     }
     
@@ -42,14 +51,25 @@ class WebModalView: UIView {
         rootContainer.snp.removeConstraints()
         rootContainer.snp.makeConstraints { make in
             rootContainerTopConstraint = make.top.equalTo(64).constraint
-            make.bottom.equalTo(0)
+            rootContainerBottomConstraint = make.bottom.equalTo(0).constraint
             make.right.equalTo(snp.right).offset(-8)
             make.left.equalTo(snp.left).offset(8)
         }
     }
     
+    private func setDismissView() {
+        rootContainer.addSubview(dismissView)
+        dismissView.snp.removeConstraints()
+        dismissView.snp.makeConstraints { make in
+            make.height.equalTo(32)
+            make.top.equalTo(8)
+            make.left.equalTo(rootContainer.snp.left).offset(16)
+            make.right.equalTo(rootContainer.snp.right).offset(-16)
+        }
+    }
+    
     private func setDismissIndicatorView() {
-        rootContainer.addSubview(dismissIndicatorView)
+        dismissView.addSubview(dismissIndicatorView)
         dismissIndicatorView.snp.removeConstraints()
         dismissIndicatorView.snp.makeConstraints { make in
             make.height.equalTo(8)

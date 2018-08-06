@@ -30,25 +30,27 @@ class WebModalViewController: UIViewController {
     }
     
     private func setupDismissIndicatorGesture() {
-        mainView.dismissIndicatorView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(dismissIndicatorViewPanned)))
+        mainView.dismissView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(dismissIndicatorViewPanned)))
     }
     
     @objc private func dismissIndicatorViewPanned(gestureRecognizer: UIPanGestureRecognizer) {
         let translation = gestureRecognizer.translation(in: mainView)
         switch gestureRecognizer.state {
-        case .began:
-            print("began")
         case .changed:
-            guard let topConstraintValue = mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant else { return }
-            mainView.rootContainer.snp.remakeConstraints { make in
-                mainView.rootContainerTopConstraint = make.top.equalTo(topConstraintValue + translation.y).constraint
-            }
+            mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant = 64 + translation.y
+            mainView.rootContainerBottomConstraint?.layoutConstraints.first?.constant = 0 + translation.y
             mainView.layoutIfNeeded()
         case .ended:
-            mainView.rootContainer.snp.remakeConstraints { make in
-                mainView.rootContainerTopConstraint = make.top.equalTo(64).constraint
+            guard let topConstraintConstant = mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant,
+                topConstraintConstant < 200.0 else {
+                    self.dismiss(animated: true, completion: nil)
+                    return
             }
-            mainView.layoutIfNeeded()
+            mainView.rootContainerBottomConstraint?.layoutConstraints.first?.constant = 0
+            mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant = 64
+            UIView.animate(withDuration: 0.5, animations: { [weak self] in
+                self?.mainView.layoutIfNeeded()
+            })
         default:
             return
         }
