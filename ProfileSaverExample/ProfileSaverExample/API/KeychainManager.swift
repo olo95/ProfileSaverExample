@@ -18,10 +18,41 @@ class KeychainManager {
     static let shared = KeychainManager()
     private init() {}
     
-    let tokenService = "token"
+    let tokenService = "tokenService"
+    let tokenAccount = "tokenAccount"
+    let testTokenService = "testTokenService"
+    let testTokenAccount = "testTokenAccount"
+    private let expirationInterval = 600.0
     
-    func checkToken() -> Bool {
-        return true
+    var isValidatedTokenExist: Bool {
+        var rawToken = ""
+        do {
+            rawToken = try readToken()
+        } catch {
+            return false
+        }
+        guard let unpackedRawToken = unpack(rawToken: rawToken) else { return false }
+        return checkExpiration(of: unpackedRawToken.rawExpirationDate)
+    }
+    
+    private func readToken() throws -> String {
+        do {
+            return try load(key: tokenAccount, with: tokenService)
+        } catch KeychainManagerErrors.keychainLoadFailed {
+            throw KeychainManagerErrors.keychainLoadFailed
+        }
+    }
+    
+    private func unpack(rawToken: String) -> (rawValue: String, rawExpirationDate: Int)? {
+        let tokenArray = rawToken.components(separatedBy: ";")
+        guard tokenArray.count == 2,
+            let tokenValue = tokenArray.first,
+            let tokenExpirationIntDate = Int(tokenArray[1]) else { return nil }
+        return (rawValue: tokenValue, rawExpirationDate: tokenExpirationIntDate)
+    }
+    
+    private func checkExpiration(of tokenIntDate: Int) -> Bool {
+        return Date(timeIntervalSince1970: Double(tokenIntDate)).addingTimeInterval(expirationInterval) < Date()
     }
     
     func save(key: String, value: String, with service: String) throws {
@@ -32,7 +63,7 @@ class KeychainManager {
         }
     }
     
-    func load(key: String, with service: String) throws -> String? {
+    func load(key: String, with service: String) throws -> String {
         do {
             let keychainItem = KeychainPasswordItem(service: service, account: key)
             return try keychainItem.readPassword()

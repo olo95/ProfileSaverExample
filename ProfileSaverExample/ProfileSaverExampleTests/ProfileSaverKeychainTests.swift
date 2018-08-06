@@ -11,8 +11,13 @@ import XCTest
 
 class ProfileSaverKeychainTests: XCTestCase {
     
+    private let testService = "testService"
+    private let testAccount = "testAccount"
+    private let testTokenService = "testTokenService"
+    private let testTokenAccount = "testTokenAccount"
+    
     func testSimpleWrite() {
-        let keychainItem = KeychainPasswordItem(service: "testservice", account: "test")
+        let keychainItem = KeychainPasswordItem(service: testService, account: testAccount)
         do {
             try keychainItem.savePassword("testPassword")
         } catch {
@@ -22,7 +27,7 @@ class ProfileSaverKeychainTests: XCTestCase {
     }
     
     func testSimpleWriteRead() {
-        let keychainItem = KeychainPasswordItem(service: "testservice", account: "test")
+        let keychainItem = KeychainPasswordItem(service: testService, account: testAccount)
         do {
             try keychainItem.savePassword("testPassword")
         } catch {
@@ -30,7 +35,7 @@ class ProfileSaverKeychainTests: XCTestCase {
         }
         
         do {
-            try KeychainPasswordItem(service: "testservice", account: "test").readPassword()
+            try KeychainPasswordItem(service: testService, account: testAccount).readPassword()
         } catch {
             XCTAssert(false, "KEYCHAIN LOAD FAILED")
         }
@@ -39,10 +44,32 @@ class ProfileSaverKeychainTests: XCTestCase {
     
     func testDelete() {
         do {
-            try KeychainPasswordItem(service: "testservice", account: "test").deleteItem()
+            try KeychainPasswordItem(service: testService, account: testAccount).deleteItem()
         } catch {
             XCTAssert(false, "KEYCHAIN DELETION FAILED")
         }
+    }
+    
+    func testEmptyRecordRead() {
+        testDelete()
+        do {
+            try KeychainPasswordItem(service: testService, account: testAccount).readPassword()
+        } catch {
+            XCTAssert(true)
+            return
+        }
+        XCTAssert(false, "THERE IS UNDELETED RECORD")
+    }
+    
+    func testRawTokenUnpack() {
+        testDelete()
+        XCTAssertTrue((KeychainManager.shared.unpack(rawToken: "asdjubijugbsdjgb3245352nb35;1231213515") != nil))
+        XCTAssertFalse((KeychainManager.shared.unpack(rawToken: "asdjubijugbsdjgb3245352nb351231213515") != nil))
+        XCTAssertFalse((KeychainManager.shared.unpack(rawToken: "asdjubijugbsdjgb;3245352nb35;1231213515") != nil))
+    }
+    
+    func testEmptyToken() {
+        XCTAssertFalse(KeychainManager.shared.isValidatedTokenExist)
     }
     
     override func setUp() {

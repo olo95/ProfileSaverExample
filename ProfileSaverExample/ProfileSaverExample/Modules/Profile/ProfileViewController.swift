@@ -23,6 +23,10 @@ class ProfileViewController: UIViewController {
     override func loadView() {
         view = ProfileView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 }
 
 extension ProfileViewController: ProfileViewControllerInput {

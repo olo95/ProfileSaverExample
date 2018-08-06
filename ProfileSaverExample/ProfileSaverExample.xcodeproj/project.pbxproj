@@ -20,6 +20,8 @@
 		EC9A37BD2111C60100F481D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9A37BB2111C60100F481D5 /* LaunchScreen.storyboard */; };
 		EC9A37C82111C60100F481D5 /* ProfileSaverExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A37C72111C60100F481D5 /* ProfileSaverExampleTests.swift */; };
 		ECA0D849211731BC00830971 /* ProfileSaverKeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D848211731BC00830971 /* ProfileSaverKeychainTests.swift */; };
+		ECA0D84B2117448400830971 /* WebModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84A2117448400830971 /* WebModalView.swift */; };
+		ECA0D84E211744B000830971 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84D211744B000830971 /* WebModalViewController.swift */; };
 		ECB8C844211364F200438AFF /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C843211364F200438AFF /* NetworkRouter.swift */; };
 		ECB8C846211364FF00438AFF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C845211364FF00438AFF /* NetworkManager.swift */; };
 		ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */; };
@@ -75,6 +77,8 @@
 		EC9A37C72111C60100F481D5 /* ProfileSaverExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverExampleTests.swift; sourceTree = "<group>"; };
 		EC9A37C92111C60100F481D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA0D848211731BC00830971 /* ProfileSaverKeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverKeychainTests.swift; sourceTree = "<group>"; };
+		ECA0D84A2117448400830971 /* WebModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalView.swift; sourceTree = "<group>"; };
+		ECA0D84D211744B000830971 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
 		ECB8C843211364F200438AFF /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		ECB8C845211364FF00438AFF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +191,15 @@
 			path = ProfileSaverExampleTests;
 			sourceTree = "<group>";
 		};
+		ECA0D84C2117448900830971 /* WebModal */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0D84A2117448400830971 /* WebModalView.swift */,
+				ECA0D84D211744B000830971 /* WebModalViewController.swift */,
+			);
+			path = WebModal;
+			sourceTree = "<group>";
+		};
 		ECB8C84221135F7200438AFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 		ECC7FE342111C74100ADFFD2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ECA0D84C2117448900830971 /* WebModal */,
 				ECC7FE382111C8AD00ADFFD2 /* TabBar */,
 				ECC7FE372111C75500ADFFD2 /* Search */,
 				ECC7FE362111C74D00ADFFD2 /* Profile */,
@@ -454,6 +468,7 @@
 				ECC7FE4F2111D5BB00ADFFD2 /* LoginInteractor.swift in Sources */,
 				ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */,
 				EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */,
+				ECA0D84B2117448400830971 /* WebModalView.swift in Sources */,
 				ECC7FE402111CD3900ADFFD2 /* SearchPresenter.swift in Sources */,
 				ECC7FE5D2111DC4000ADFFD2 /* LoginWorker.swift in Sources */,
 				ECC7FE452111D14F00ADFFD2 /* ColorTheme.swift in Sources */,
@@ -469,6 +484,7 @@
 				ECC7FE492111D59700ADFFD2 /* ProfileInteractor.swift in Sources */,
 				ECC7FE692111F39C00ADFFD2 /* LoginView.swift in Sources */,
 				ECC7FE4D2111D5AE00ADFFD2 /* LoginViewController.swift in Sources */,
+				ECA0D84E211744B000830971 /* WebModalViewController.swift in Sources */,
 				ECC7FE592111DC2500ADFFD2 /* SearchWorker.swift in Sources */,
 				EC9A37B32111C60000F481D5 /* AppDelegate.swift in Sources */,
 				ECC7FE672111F38D00ADFFD2 /* ProfileView.swift in Sources */,
