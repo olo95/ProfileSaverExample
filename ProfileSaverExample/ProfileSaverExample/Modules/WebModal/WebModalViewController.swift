@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class WebModalViewController: UIViewController {
     
@@ -23,6 +24,8 @@ class WebModalViewController: UIViewController {
     init(with authorizeUrl: URL) {
         super.init(nibName: nil, bundle: nil)
         setupDismissIndicatorGesture()
+        setupWebView()
+        loadAuthorizationPage()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,4 +58,18 @@ class WebModalViewController: UIViewController {
             return
         }
     }
+    
+    private func setupWebView() {
+        mainView.webView.navigationDelegate = self
+    }
+    
+    private func loadAuthorizationPage() {
+        guard let path = NetworkRouter.authorize.path, let url = URL(string: path) else { return }
+        let urlRequest = URLRequest(url: url)
+        mainView.webView.load(urlRequest)
+    }
+}
+
+extension WebModalViewController: WKNavigationDelegate {
+    
 }

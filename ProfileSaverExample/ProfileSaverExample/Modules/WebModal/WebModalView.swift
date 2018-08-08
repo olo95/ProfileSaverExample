@@ -7,6 +7,7 @@
 //
 
 import SnapKit
+import WebKit
 
 class WebModalView: UIView {
     
@@ -17,6 +18,9 @@ class WebModalView: UIView {
         let view = UIView(frame: .zero)
         view.backgroundColor = ColorTheme.onPrimary.value
         view.layer.cornerRadius = 2
+        view.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        view.layer.shadowRadius = 2.0
+        view.layer.shadowOpacity = 0.1
         return view
     }()
     
@@ -26,10 +30,17 @@ class WebModalView: UIView {
         return view
     }()
     
+    let webView: WKWebView = {
+       return WKWebView()
+    }()
+    
     let rootContainer: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = ColorTheme.onSecondary.value.withAlphaComponent(0.95)
         view.layer.cornerRadius = 8
+        view.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        view.layer.shadowRadius = 2.0
+        view.layer.shadowOpacity = 0.5
         return view
     }()
     
@@ -40,6 +51,7 @@ class WebModalView: UIView {
         setRootContainer()
         setDismissView()
         setDismissIndicatorView()
+        setWebView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,6 +88,16 @@ class WebModalView: UIView {
             make.top.equalTo(8)
             make.left.equalTo(rootContainer.snp.left).offset(16)
             make.right.equalTo(rootContainer.snp.right).offset(-16)
+        }
+    }
+    
+    private func setWebView() {
+        rootContainer.addSubview(webView)
+        webView.snp.removeConstraints()
+        webView.snp.makeConstraints { make in
+            make.bottom.equalTo(0)
+            make.right.left.equalTo(0)
+            make.top.equalTo(dismissView.snp.bottom)
         }
     }
 }

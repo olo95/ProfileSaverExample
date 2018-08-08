@@ -38,7 +38,7 @@ enum NetworkRouter {
             return [URLQueryItem(name: "client_id", value: infoPlist.apiAccessKey),
                     URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri + "://bolo.com"),
                     URLQueryItem(name: "response_type", value: "code"),
-                    URLQueryItem(name: "scope", value: "public+read_user")]
+                    URLQueryItem(name: "scope", value: "public")]
         case .token:
             return []
         }
