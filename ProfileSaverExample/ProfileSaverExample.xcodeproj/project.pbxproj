@@ -23,6 +23,8 @@
 		ECA0D84B2117448400830971 /* WebModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84A2117448400830971 /* WebModalView.swift */; };
 		ECA0D84E211744B000830971 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84D211744B000830971 /* WebModalViewController.swift */; };
 		ECA0D8502118B2E500830971 /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0D84F2118B2E500830971 /* KeychainConstants.swift */; };
+		ECAF8750211B66B5000F7EE0 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAF874F211B66B5000F7EE0 /* Token.swift */; };
+		ECAF8754211B6FF9000F7EE0 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAF8753211B6FF9000F7EE0 /* Response.swift */; };
 		ECB8C844211364F200438AFF /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C843211364F200438AFF /* NetworkRouter.swift */; };
 		ECB8C846211364FF00438AFF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8C845211364FF00438AFF /* NetworkManager.swift */; };
 		ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */; };
@@ -81,6 +83,8 @@
 		ECA0D84A2117448400830971 /* WebModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalView.swift; sourceTree = "<group>"; };
 		ECA0D84D211744B000830971 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
 		ECA0D84F2118B2E500830971 /* KeychainConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
+		ECAF874F211B66B5000F7EE0 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		ECAF8753211B6FF9000F7EE0 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		ECB8C843211364F200438AFF /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		ECB8C845211364FF00438AFF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ECC7FE392111CB2500ADFFD2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				EC95E8B521160C01007119AC /* RequestTokenBody.swift */,
 				EC95E8B7211610B6007119AC /* RequestTokenResponse.swift */,
 				EC95E8B921161FB9007119AC /* KeychainPasswordItem.swift */,
+				ECAF874F211B66B5000F7EE0 /* Token.swift */,
+				ECAF8753211B6FF9000F7EE0 /* Response.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				ECC7FE652111F38400ADFFD2 /* SearchView.swift in Sources */,
 				ECC7FE3C2111CD1A00ADFFD2 /* SearchViewController.swift in Sources */,
 				ECC7FE4F2111D5BB00ADFFD2 /* LoginInteractor.swift in Sources */,
+				ECAF8750211B66B5000F7EE0 /* Token.swift in Sources */,
 				ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */,
 				EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */,
 				ECA0D84B2117448400830971 /* WebModalView.swift in Sources */,
@@ -494,6 +501,7 @@
 				ECC7FE4D2111D5AE00ADFFD2 /* LoginViewController.swift in Sources */,
 				ECA0D84E211744B000830971 /* WebModalViewController.swift in Sources */,
 				ECC7FE592111DC2500ADFFD2 /* SearchWorker.swift in Sources */,
+				ECAF8754211B6FF9000F7EE0 /* Response.swift in Sources */,
 				EC9A37B32111C60000F481D5 /* AppDelegate.swift in Sources */,
 				ECC7FE672111F38D00ADFFD2 /* ProfileView.swift in Sources */,
 				ECC7FE532111D75800ADFFD2 /* SearchRouter.swift in Sources */,

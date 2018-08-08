@@ -10,4 +10,9 @@ import Foundation
 
 class LoginWorker {
     
+    func requestToken(with authorizationCode: String, completionHandler: @escaping (Token?) -> ()) {
+        NetworkManager.shared.getToken(with: authorizationCode, completionHandler: { token in
+            completionHandler(token)
+        })
+    }
 }

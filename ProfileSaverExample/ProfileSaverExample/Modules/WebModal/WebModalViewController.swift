@@ -9,9 +9,14 @@
 import UIKit
 import WebKit
 
+protocol WebModalViewOutput {
+    func didReceive(authenticationCode: String)
+}
+
 class WebModalViewController: UIViewController {
     
     private lazy var rootContainerCenter = mainView.rootContainer.center
+    private let delegate: WebModalViewOutput
     
     private lazy var mainView: WebModalView = {
        return view as! WebModalView
@@ -21,7 +26,8 @@ class WebModalViewController: UIViewController {
         view = WebModalView()
     }
     
-    init(with authorizeUrl: URL) {
+    init(with authorizeUrl: URL, delegate: WebModalViewOutput) {
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
         setupDismissIndicatorGesture()
         setupWebView()
@@ -71,5 +77,26 @@ class WebModalViewController: UIViewController {
 }
 
 extension WebModalViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        guard webView.url?.scheme == InfoPlist.shared?.redirectUri.lowercased(),
+              let url = webView.url, let urlComponents = URLComponents(string: url.absoluteString),
+            let code = urlComponents.queryItems?.first(where: { $0.name == "code" })?.value else { return }
+        delegate.didReceive(authenticationCode: code)
+    }
     
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+    }
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.allow)
+    }
 }

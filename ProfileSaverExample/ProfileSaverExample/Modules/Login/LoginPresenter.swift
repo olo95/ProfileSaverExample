@@ -10,6 +10,8 @@ import Foundation
 
 protocol LoginPresenterInput: class {
     func present(webModalViewController: WebModalViewController)
+    func tokenReceived()
+    func tokenMissing()
 }
 
 class LoginPresenter {
@@ -17,7 +19,16 @@ class LoginPresenter {
 }
 
 extension LoginPresenter: LoginPresenterInput {
+    
     func present(webModalViewController: WebModalViewController) {
         output?.present(webModalViewController: webModalViewController)
+    }
+    
+    func tokenReceived() {
+        
+    }
+    
+    func tokenMissing() {
+        
     }
 }

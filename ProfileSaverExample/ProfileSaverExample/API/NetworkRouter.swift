@@ -12,6 +12,20 @@ enum NetworkRouter {
     case authorize
     case token(code : String)
     
+    var request: URLRequest? {
+        switch self {
+        case .token:
+            guard let path = path, let url = URL(string: path), let bodyParameters = bodyParameters else { return nil }
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpBody = bodyParameters
+            urlRequest.httpMethod = requestType
+            urlRequest.allHTTPHeaderFields = headers
+            return urlRequest
+        default:
+            return nil
+        }
+    }
+    
     var path: String? {
         guard let infoPlist = InfoPlist.shared else { return nil }
         switch self {
@@ -36,9 +50,9 @@ enum NetworkRouter {
         switch self {
         case .authorize:
             return [URLQueryItem(name: "client_id", value: infoPlist.apiAccessKey),
-                    URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri + "://bolo.com"),
+                    URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri + "://authorization.callback"),
                     URLQueryItem(name: "response_type", value: "code"),
-                    URLQueryItem(name: "scope", value: "public")]
+                    URLQueryItem(name: "scope", value: "public read_user")]
         case .token:
             return []
         }
@@ -54,10 +68,10 @@ enum NetworkRouter {
         }
     }
     
-    var headers: [(key: String, value: String)] {
+    var headers: [String : String] {
         switch self {
         default:
-            return []
+            return ["Content-Type":"application/json", "Accept":"application/json"]
         }
     }
     

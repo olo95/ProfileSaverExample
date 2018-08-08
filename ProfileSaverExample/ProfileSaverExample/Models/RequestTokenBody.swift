@@ -28,6 +28,7 @@ struct RequestTokenBody {
         self.code = code
         self.clientId = plist.apiAccessKey
         self.clientSecret = plist.apiSecretAccessKey
+        self.redirectUri = plist.redirectUri + "://authorization.callback"
     }
 }
 
