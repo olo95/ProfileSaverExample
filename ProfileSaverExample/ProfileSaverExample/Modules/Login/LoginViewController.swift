@@ -10,6 +10,7 @@ import UIKit
 
 protocol LoginViewControllerInput: class {
     func present(webModalViewController: WebModalViewController)
+    func showLoginView()
 }
 
 class LoginViewController: UIViewController {
@@ -37,6 +38,10 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewControllerInput {
+    func showLoginView() {
+        mainView.addNoUserLoggedView()
+    }
+    
     func present(webModalViewController: WebModalViewController) {
         router?.present(viewController: webModalViewController)
     }

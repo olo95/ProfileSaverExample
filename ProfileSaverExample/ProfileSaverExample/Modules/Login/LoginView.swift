@@ -7,6 +7,7 @@
 //
 
 import SnapKit
+import MaterialComponents.MaterialButtons
 
 class LoginView: UIView {
     
@@ -33,39 +34,60 @@ class LoginView: UIView {
         return imageView
     }()
     
+    let noUserLoadedLoginButton: MDCButton = {
+        let button = MDCButton(frame: .zero)
+        button.setBackgroundColor(ColorTheme.secondary.value)
+        button.layer.cornerRadius = 8
+        button.setTitle("LOGIN", for: .normal)
+        return button
+    }()
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = UIColor.yellow
-        setNoUserLoadedView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func addNoUserLoggedView() {
+        setNoUserLoadedView()
+    }
+    
     private func setNoUserLoadedView() {
         
         addSubview(noUserLoadedView)
+        noUserLoadedView.addSubview(noUserLoadedImageView)
+        noUserLoadedView.addSubview(noUserLoadedLoginButton)
+        noUserLoadedView.addSubview(noUserLoadedLabel)
+        
         noUserLoadedView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.right.equalTo(-8)
             make.left.equalTo(8)
         }
         
-        noUserLoadedView.addSubview(noUserLoadedLabel)
         noUserLoadedLabel.snp.makeConstraints { make in
-            make.left.equalTo(8)
             make.right.equalTo(-8)
+            make.left.equalTo(noUserLoadedImageView.snp.right).offset(8)
             make.bottom.equalTo(-16)
         }
         
-        noUserLoadedView.addSubview(noUserLoadedImageView)
+        noUserLoadedLoginButton.snp.makeConstraints { make in
+            make.right.equalTo(-8)
+            make.left.equalTo(8)
+            make.bottom.equalTo(-16)
+        }
+        
         noUserLoadedImageView.snp.makeConstraints { make in
-            make.bottom.equalTo(noUserLoadedLabel.snp.top).offset(-8)
-            make.center.equalToSuperview()
-            make.top.greaterThanOrEqualTo(8)
+            make.left.equalTo(8)
+            make.top.greaterThanOrEqualTo(16)
             make.height.equalTo(64)
             make.width.equalTo(64)
+            make.right.equalTo(noUserLoadedLabel.snp.left).offset(-16)
+            make.centerY.equalTo(noUserLoadedLabel)
+            make.bottom.equalTo(noUserLoadedLoginButton.snp.top).offset(-8)
         }
     }
 }

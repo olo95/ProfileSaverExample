@@ -82,6 +82,7 @@ extension WebModalViewController: WKNavigationDelegate {
               let url = webView.url, let urlComponents = URLComponents(string: url.absoluteString),
             let code = urlComponents.queryItems?.first(where: { $0.name == "code" })?.value else { return }
         delegate.didReceive(authenticationCode: code)
+        dismiss(animated: true, completion: nil)
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

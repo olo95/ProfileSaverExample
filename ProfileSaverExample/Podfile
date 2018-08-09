@@ -8,6 +8,7 @@ target 'ProfileSaverExample' do
   # Pods for ProfileSaverExample
   pod 'SnapKit'
   pod 'MaterialComponents/TextFields'
+  pod 'MaterialComponents/Buttons'
   pod 'RealmSwift'
 
   target 'ProfileSaverExampleTests' do

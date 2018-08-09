@@ -27,8 +27,7 @@ class KeychainManager {
         } catch {
             return nil
         }
-        guard let unpackedRawToken = unpack(rawToken: rawToken) else { return nil }
-        return unpackedRawToken.rawValue
+        return unpack(rawToken: rawToken)?.rawValue
     }
     
     var isValidatedTokenExist: Bool {
@@ -52,6 +51,11 @@ class KeychainManager {
     
     func checkExpiration(of tokenIntDate: Int) -> Bool {
         return Date(timeIntervalSince1970: Double(tokenIntDate)).addingTimeInterval(expirationInterval) < Date()
+    }
+    
+    func save(_ token: Token) throws {
+        let rawTokenValue = "\(token.accessToken);\(token.createdAt)"
+        try save(account: KeychainConstants.tokenAccount, value: rawTokenValue, with: KeychainConstants.tokenService)
     }
     
     func save(account: String, value: String, with service: String) throws {
