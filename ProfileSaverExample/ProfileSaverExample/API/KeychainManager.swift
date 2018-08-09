@@ -70,7 +70,7 @@ class KeychainManager {
     
     func remove(account: String, with service: String) throws {
         do {
-            try KeychainPasswordItem(service: KeychainConstants.testService, account: KeychainConstants.testAccount).deleteItem()
+            try KeychainPasswordItem(service: service, account: account).deleteItem()
         } catch {
             throw KeychainManagerErrors.keychainRemoveFailed
         }

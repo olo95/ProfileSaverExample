@@ -9,6 +9,7 @@
 import Foundation
 
 enum NetworkRouter {
+    case user
     case authorize
     case token(code : String)
     
@@ -29,6 +30,8 @@ enum NetworkRouter {
     var path: String? {
         guard let infoPlist = InfoPlist.shared else { return nil }
         switch self {
+        case .user:
+            guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "me") else { return nil }
         case .authorize:
             guard var urlComponents = URLComponents(string: infoPlist.baseOauthUrl + "authorize") else { return nil }
             urlComponents.queryItems = NetworkRouter.authorize.parameters
@@ -41,6 +44,7 @@ enum NetworkRouter {
     var requestType: String? {
         switch self {
         case .authorize: return nil
+        case .user: return "GET"
         case .token: return "POST"
         }
     }
@@ -53,7 +57,7 @@ enum NetworkRouter {
                     URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri + "://authorization.callback"),
                     URLQueryItem(name: "response_type", value: "code"),
                     URLQueryItem(name: "scope", value: "public read_user")]
-        case .token:
+        default:
             return []
         }
     }
@@ -68,10 +72,13 @@ enum NetworkRouter {
         }
     }
     
-    var headers: [String : String] {
+    var headers: [String : String]? {
         switch self {
+        case .user:
+            guard let token = KeychainManager.shared.token() else { return nil }
+            return ["Content-Type": "application/json", "Accept": "application/json", "Accept-Version": "v1", "Authorization": "Bearer \(token.rawValue)" ]
         default:
-            return ["Content-Type":"application/json", "Accept":"application/json"]
+            return ["Content-Type": "application/json", "Accept": "application/json", "Accept-Version": "v1"]
         }
     }
     

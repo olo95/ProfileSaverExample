@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3047EF52D47B4BEFCE39E8CC /* Pods_ProfileSaverExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04D195B92AE7E938F6B3710 /* Pods_ProfileSaverExample.framework */; };
 		B1312C17B9E5B484754D0E19 /* Pods_ProfileSaverExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB753AA0E130D51F00057AA /* Pods_ProfileSaverExampleTests.framework */; };
+		EC378B2E211CF81F000757DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC378B2D211CF81F000757DB /* User.swift */; };
 		EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD3102113ACD000605E03 /* KeychainManager.swift */; };
 		EC84DF852115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */; };
 		EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8514242114AA2800860E50 /* InfoPlist.swift */; };
@@ -65,6 +66,7 @@
 		77624F0693263EA65A0F2CA9 /* Pods-ProfileSaverExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProfileSaverExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProfileSaverExampleTests/Pods-ProfileSaverExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		B38B8D423424753F65D54D8D /* Pods-ProfileSaverExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProfileSaverExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProfileSaverExample/Pods-ProfileSaverExample.release.xcconfig"; sourceTree = "<group>"; };
 		E04D195B92AE7E938F6B3710 /* Pods_ProfileSaverExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProfileSaverExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC378B2D211CF81F000757DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC4DD3102113ACD000605E03 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverInfoPlistTests.swift; sourceTree = "<group>"; };
 		EC8514242114AA2800860E50 /* InfoPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				EC95E8B921161FB9007119AC /* KeychainPasswordItem.swift */,
 				ECAF874F211B66B5000F7EE0 /* Token.swift */,
 				ECAF8753211B6FF9000F7EE0 /* Response.swift */,
+				EC378B2D211CF81F000757DB /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */,
 				EC95E8B8211610B6007119AC /* RequestTokenResponse.swift in Sources */,
 				ECC7FE3E2111CD2D00ADFFD2 /* SearchInteractor.swift in Sources */,
+				EC378B2E211CF81F000757DB /* User.swift in Sources */,
 				ECC7FE492111D59700ADFFD2 /* ProfileInteractor.swift in Sources */,
 				ECC7FE692111F39C00ADFFD2 /* LoginView.swift in Sources */,
 				ECC7FE4D2111D5AE00ADFFD2 /* LoginViewController.swift in Sources */,
