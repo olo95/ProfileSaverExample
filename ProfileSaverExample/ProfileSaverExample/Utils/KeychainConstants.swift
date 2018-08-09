@@ -15,5 +15,5 @@ struct KeychainConstants {
     static let tokenAccount = "tokenAccount"
     static let testTokenService = "testTokenService"
     static let testTokenAccount = "testTokenAccount"
-    static let expirationInterval = 600.0
+    static let expirationInterval = 60.0
 }

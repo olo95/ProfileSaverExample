@@ -85,7 +85,7 @@ class ProfileSaverKeychainTests: XCTestCase {
     func testInvalidToken() {
         let currentTime = Date()
         let timeInterval = currentTime.timeIntervalSince1970
-        let timeIntervalInt = Int(timeInterval) + Int(KeychainConstants.expirationInterval) + 1
+        let timeIntervalInt = Int(timeInterval) - Int(KeychainConstants.expirationInterval) - 1
         
         do {
             try KeychainPasswordItem(service: KeychainConstants.testTokenService, account: KeychainConstants.testTokenAccount).deleteItem()

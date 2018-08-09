@@ -74,6 +74,10 @@ class WebModalViewController: UIViewController {
         let urlRequest = URLRequest(url: url)
         mainView.webView.load(urlRequest)
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.layoutIfNeeded()
+    }
 }
 
 extension WebModalViewController: WKNavigationDelegate {

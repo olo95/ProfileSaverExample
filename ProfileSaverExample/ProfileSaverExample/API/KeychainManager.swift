@@ -43,7 +43,7 @@ class KeychainManager {
     }
     
     func isExpired(tokenIntDate: Int) -> Bool {
-        return Date(timeIntervalSince1970: Double(tokenIntDate)) > Date().addingTimeInterval(KeychainConstants.expirationInterval)
+        return Date(timeIntervalSince1970: Double(tokenIntDate)).addingTimeInterval(KeychainConstants.expirationInterval) < Date()
     }
     
     func save(_ token: Token) throws {
