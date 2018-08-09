@@ -68,6 +68,34 @@ class ProfileSaverKeychainTests: XCTestCase {
         XCTAssertFalse(((try? KeychainManager.shared.load(account: KeychainConstants.testTokenAccount, with: KeychainConstants.testTokenService)) != nil))
     }
     
+    func testValidToken() {
+        let currentTime = Date()
+        let timeInterval = currentTime.timeIntervalSince1970
+        let timeIntervalInt = Int(timeInterval)
+        
+        do {
+            try KeychainPasswordItem(service: KeychainConstants.testTokenService, account: KeychainConstants.testTokenAccount).deleteItem()
+            try KeychainPasswordItem(service: KeychainConstants.testTokenService, account: KeychainConstants.testTokenAccount).savePassword("asdwfsdvewgtweg;\(timeIntervalInt)")
+        } catch {
+            XCTAssert(false, "KEYCHAIN SAVE OR LOAD FAILED")
+        }
+        XCTAssertTrue(KeychainManager.shared.isValidatedTokenExist(account: KeychainConstants.testTokenAccount, service: KeychainConstants.testTokenService))
+    }
+    
+    func testInvalidToken() {
+        let currentTime = Date()
+        let timeInterval = currentTime.timeIntervalSince1970
+        let timeIntervalInt = Int(timeInterval) + Int(KeychainConstants.expirationInterval) + 1
+        
+        do {
+            try KeychainPasswordItem(service: KeychainConstants.testTokenService, account: KeychainConstants.testTokenAccount).deleteItem()
+            try KeychainPasswordItem(service: KeychainConstants.testTokenService, account: KeychainConstants.testTokenAccount).savePassword("asdwfsdvewgtweg;\(timeIntervalInt)")
+        } catch {
+            XCTAssert(false, "KEYCHAIN SAVE OR LOAD FAILED")
+        }
+        XCTAssertFalse(KeychainManager.shared.isValidatedTokenExist(account: KeychainConstants.testTokenAccount, service: KeychainConstants.testTokenService))
+    }
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.

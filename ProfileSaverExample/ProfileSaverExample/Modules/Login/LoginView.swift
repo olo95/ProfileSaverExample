@@ -24,13 +24,14 @@ class LoginView: UIView {
     let noUserLoadedLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "No user loaded"
+        label.textColor = ColorTheme.secondary.value
         label.textAlignment = .center
         return label
     }()
     
     let noUserLoadedImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "user"))
-        imageView.tintColor = ColorTheme.onBackground.value
+        imageView.tintColor = ColorTheme.secondary.value
         return imageView
     }()
     
@@ -44,7 +45,7 @@ class LoginView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor.yellow
+        backgroundColor = ColorTheme.background.value
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,7 +71,7 @@ class LoginView: UIView {
         
         noUserLoadedLabel.snp.makeConstraints { make in
             make.right.equalTo(-8)
-            make.left.equalTo(noUserLoadedImageView.snp.right).offset(8)
+            make.left.equalTo(noUserLoadedImageView.snp.right).offset(16)
             make.bottom.equalTo(-16)
         }
         
@@ -85,7 +86,6 @@ class LoginView: UIView {
             make.top.greaterThanOrEqualTo(16)
             make.height.equalTo(64)
             make.width.equalTo(64)
-            make.right.equalTo(noUserLoadedLabel.snp.left).offset(-16)
             make.centerY.equalTo(noUserLoadedLabel)
             make.bottom.equalTo(noUserLoadedLoginButton.snp.top).offset(-8)
         }

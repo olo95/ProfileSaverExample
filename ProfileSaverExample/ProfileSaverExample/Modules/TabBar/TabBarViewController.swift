@@ -57,6 +57,7 @@ class TabBarViewController: UITabBarController {
     
     private func customizeTabBar() {
         tabBar.isTranslucent = true
+        tabBar.tintColor = ColorTheme.secondary.value
     }
     
     private func initializeViewControllers() {

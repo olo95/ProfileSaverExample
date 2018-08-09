@@ -11,6 +11,7 @@ import Foundation
 protocol LoginInteractorInput: class {
     func onUserNotLoggedIn()
     func onUserLoggedIn()
+    func onLogin()
 }
 
 class LoginInteractor {
@@ -21,12 +22,15 @@ class LoginInteractor {
 extension LoginInteractor: LoginInteractorInput {
     func onUserNotLoggedIn() {
         output?.showLoginView()
-//        guard let stringPath = NetworkRouter.authorize.path, let authorizeUrl = URL(string: stringPath) else { return }
-//        output?.present(webModalViewController: WebModalViewController(with: authorizeUrl, delegate: self))
     }
     
     func onUserLoggedIn() {
         //download user with token
+    }
+    
+    func onLogin() {
+        guard let stringPath = NetworkRouter.authorize.path, let authorizeUrl = URL(string: stringPath) else { return }
+        output?.present(webModalViewController: WebModalViewController(with: authorizeUrl, delegate: self))
     }
 }
 

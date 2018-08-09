@@ -29,11 +29,20 @@ class LoginViewController: UIViewController {
         if let navigationController = navigationController {
             router = LoginRouter(navigationController: navigationController)
         }
+        setupButtons()
+    }
+    
+    private func setupButtons() {
+        mainView.noUserLoadedLoginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(loginButtonTapped)))
+    }
+    
+    @objc private func loginButtonTapped() {
+        output?.onLogin()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        KeychainManager.shared.isValidatedTokenExist ? output?.onUserLoggedIn() : output?.onUserNotLoggedIn()
+        KeychainManager.shared.isValidatedTokenExist() ? output?.onUserLoggedIn() : output?.onUserNotLoggedIn()
     }
 }
 

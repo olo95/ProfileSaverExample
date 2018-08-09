@@ -18,27 +18,20 @@ class KeychainManager {
     
     static let shared = KeychainManager()
     private init() {}
-    private let expirationInterval = 600.0
     
-    var token: String? {
+    func token(account: String = KeychainConstants.tokenAccount, service: String = KeychainConstants.tokenService) -> (rawValue: String, rawExpirationDate: Int)? {
         var rawToken = ""
         do {
-            rawToken = try load(account: KeychainConstants.tokenAccount, with: KeychainConstants.tokenService)
+            rawToken = try load(account: account, with: service)
         } catch {
             return nil
         }
-        return unpack(rawToken: rawToken)?.rawValue
+        return unpack(rawToken: rawToken)
     }
     
-    var isValidatedTokenExist: Bool {
-        var rawToken = ""
-        do {
-            rawToken = try load(account: KeychainConstants.tokenAccount, with: KeychainConstants.tokenService)
-        } catch {
-            return false
-        }
-        guard let unpackedRawToken = unpack(rawToken: rawToken) else { return false }
-        return checkExpiration(of: unpackedRawToken.rawExpirationDate)
+    func isValidatedTokenExist(account: String = KeychainConstants.tokenAccount, service: String = KeychainConstants.tokenService) -> Bool {
+        guard let token = token(account: account, service: service) else { return false }
+        return !isExpired(tokenIntDate: token.rawExpirationDate)
     }
     
     func unpack(rawToken: String) -> (rawValue: String, rawExpirationDate: Int)? {
@@ -49,8 +42,8 @@ class KeychainManager {
         return (rawValue: tokenValue, rawExpirationDate: tokenExpirationIntDate)
     }
     
-    func checkExpiration(of tokenIntDate: Int) -> Bool {
-        return Date(timeIntervalSince1970: Double(tokenIntDate)).addingTimeInterval(expirationInterval) < Date()
+    func isExpired(tokenIntDate: Int) -> Bool {
+        return Date(timeIntervalSince1970: Double(tokenIntDate)) > Date().addingTimeInterval(KeychainConstants.expirationInterval)
     }
     
     func save(_ token: Token) throws {
