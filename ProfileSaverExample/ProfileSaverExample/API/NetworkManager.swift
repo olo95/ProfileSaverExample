@@ -18,7 +18,7 @@ class NetworkManager {
             completionHandler(nil)
             return
         }
-        POST(request: request, completionHandler: { (response: Response) in
+        make(request: request, completionHandler: { (response: Response) in
             switch response {
             case .success(let data):
                 do {
@@ -34,14 +34,31 @@ class NetworkManager {
         })
     }
     
-    private func GET(completionHandler: @escaping (Response) -> ()) {
-        
+    func getUser(completionHandler: @escaping (User?) -> ()) {
+        guard let request = NetworkRouter.user.request else {
+            completionHandler(nil)
+            return
+        }
+        make(request: request, completionHandler: { (response: Response) in
+            switch response {
+            case .success(let data):
+                do {
+                    completionHandler(try JSONDecoder().decode(User.self, from: data))
+                } catch {
+                    print(error.localizedDescription)
+                    completionHandler(nil)
+                }
+            case .failure(let description):
+                print(description)
+                completionHandler(nil)
+            }
+        })
     }
     
-    private func POST(request: URLRequest, completionHandler: @escaping (Response) -> ()) {
+    private func make(request: URLRequest, completionHandler: @escaping (Response) -> ()) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error { completionHandler(Response.failure(description: error.localizedDescription)) }
             if let data = data { completionHandler(Response.success(data: data)) }
-        }.resume()
+            }.resume()
     }
 }

@@ -31,7 +31,8 @@ enum NetworkRouter {
         guard let infoPlist = InfoPlist.shared else { return nil }
         switch self {
         case .user:
-            guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "me") else { return nil }
+            guard let urlComponents = URLComponents(string: infoPlist.baseUrl + "me") else { return nil }
+            return urlComponents.url?.absoluteString
         case .authorize:
             guard var urlComponents = URLComponents(string: infoPlist.baseOauthUrl + "authorize") else { return nil }
             urlComponents.queryItems = NetworkRouter.authorize.parameters
@@ -81,6 +82,4 @@ enum NetworkRouter {
             return ["Content-Type": "application/json", "Accept": "application/json", "Accept-Version": "v1"]
         }
     }
-    
-    
 }

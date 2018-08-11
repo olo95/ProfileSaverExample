@@ -15,4 +15,10 @@ class LoginWorker {
             completionHandler(token)
         })
     }
+    
+    func fetchUser(completionHandler: @escaping (User?) -> ()) {
+        NetworkManager.shared.getUser(completionHandler: { user in
+            completionHandler(user)
+        })
+    }
 }

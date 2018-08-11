@@ -25,7 +25,13 @@ extension LoginInteractor: LoginInteractorInput {
     }
     
     func onUserLoggedIn() {
-        //download user with token
+        worker.fetchUser(completionHandler: { [weak self] user in
+            if let user = user {
+                self?.output?.showUserView(with: user)
+            } else {
+                self?.output?.showFetchUserError()
+            }
+        })
     }
     
     func onLogin() {
