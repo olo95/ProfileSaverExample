@@ -24,7 +24,7 @@ class LoginPresenter {
 
 extension LoginPresenter: LoginPresenterInput {
     func showUserView(with user: User) {
-        
+        output?.showUserView(with: user)
     }
     
     func showFetchUserError() {

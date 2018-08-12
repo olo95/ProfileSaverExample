@@ -22,6 +22,12 @@ enum NetworkRouter {
             urlRequest.httpMethod = requestType
             urlRequest.allHTTPHeaderFields = headers
             return urlRequest
+        case .user:
+            guard let path = path, let url = URL(string: path) else { return nil }
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = requestType
+            urlRequest.allHTTPHeaderFields = headers
+            return urlRequest
         default:
             return nil
         }

@@ -11,6 +11,7 @@ import UIKit
 protocol LoginViewControllerInput: class {
     func present(webModalViewController: WebModalViewController)
     func showLoginView()
+    func showUserView(with user: User)
 }
 
 class LoginViewController: UIViewController {
@@ -53,5 +54,9 @@ extension LoginViewController: LoginViewControllerInput {
     
     func present(webModalViewController: WebModalViewController) {
         router?.present(viewController: webModalViewController)
+    }
+    
+    func showUserView(with user: User) {
+        mainView.addUserView(with: user)
     }
 }
