@@ -36,7 +36,7 @@ extension LoginPresenter: LoginPresenterInput {
     }
     
     func tokenReceived() {
-        
+        output?.tokenReceived()
     }
     
     func tokenMissing() {

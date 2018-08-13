@@ -59,207 +59,8 @@ class LoginView: UIView {
     
     let userStackView: UIStackView = {
        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
         return stackView
-    }()
-    
-    let usernameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let usernameValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let firstNameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let firstNameValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let lastNameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let lastNameValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let twitterUsernameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let twitterUsernameValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let portfolioUrlLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let portfolioUrlValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let bioLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let bioValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let locationLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let locationValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let totalLikesLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let totalLikesValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let totalPhotosLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let totalPhotosValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let totalCollectionsLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let totalCollectionsValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let followedByUserLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let followedByUserValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let downloadsLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let downloadsValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let uploadsRemainingLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let uploadsRemainingValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let instagramUsernameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let instagramUsernameValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let emailLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let emailValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let selfLinkLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let selfLinkValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let htmlLinkLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let htmlLinkValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let photosLinkLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let photosLinkValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let likesLinkLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let likesLinkValueLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let portfolioLinkLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    let portfolioLinkValueLabel: UILabel = {
-        let label = UILabel()
-        return label
     }()
     
     init() {
@@ -278,6 +79,7 @@ class LoginView: UIView {
     private func setNoUserLoadedView() {
         
         userView.removeFromSuperview()
+        noUserLoadedView.removeFromSuperview()
         addSubview(noUserLoadedView)
         noUserLoadedView.addSubview(noUserLoadedImageView)
         noUserLoadedView.addSubview(noUserLoadedLoginButton)
@@ -312,40 +114,18 @@ class LoginView: UIView {
     }
     
     func addUserView(with user: User) {
-        setUserLabels(with: user)
-        setUserView()
+        setUserView(with: user)
     }
     
-    private func setUserLabels(with user: User) {
-        usernameValueLabel.text = user.username
-        firstNameValueLabel.text = user.firstName
-        lastNameValueLabel.text = user.lastName
-        twitterUsernameValueLabel.text = user.twitterUsername
-        portfolioUrlValueLabel.text = user.portfolioUrl
-        bioValueLabel.text = user.bio
-        locationValueLabel.text = user.location
-        totalLikesValueLabel.text = String(user.totalLikes ?? 0)
-        totalPhotosValueLabel.text = String(user.totalPhotos ?? 0)
-        totalCollectionsValueLabel.text = String(user.totalCollections ?? 0)
-        followedByUserValueLabel.text = user.followedByUser ? "YES" : "NO"
-        downloadsValueLabel.text = String(user.downloads ?? 0)
-        uploadsRemainingValueLabel.text = String(user.uploadsRemaining ?? 0)
-        instagramUsernameValueLabel.text = user.instagramUsername
-        emailValueLabel.text = user.email
-        selfLinkValueLabel.text = user.selfLink
-        htmlLinkValueLabel.text = user.htmlLink
-        photosLinkValueLabel.text = user.photosLink
-        likesLinkValueLabel.text = user.likesLink
-        portfolioLinkValueLabel.text = user.portfolioLink
-    }
-    
-    private func setUserView() {
+    private func setUserView(with user: User) {
         noUserLoadedView.removeFromSuperview()
+        userScrollView.removeFromSuperview()
         addSubview(userScrollView)
         userScrollView.addSubview(userView)
         userView.addSubview(userStackView)
         
         userScrollView.snp.makeConstraints { make in
+            make.top.equalTo(0)
             make.edges.equalTo(0)
         }
         
@@ -362,45 +142,82 @@ class LoginView: UIView {
             make.bottom.equalTo(-8)
         }
         
-        userStackView.addArrangedSubview(usernameLabel)
-        userStackView.addArrangedSubview(usernameValueLabel)
-        userStackView.addArrangedSubview(firstNameLabel)
-        userStackView.addArrangedSubview(firstNameValueLabel)
-        userStackView.addArrangedSubview(lastNameLabel)
-        userStackView.addArrangedSubview(lastNameValueLabel)
-        userStackView.addArrangedSubview(twitterUsernameLabel)
-        userStackView.addArrangedSubview(twitterUsernameValueLabel)
-        userStackView.addArrangedSubview(portfolioUrlLabel)
-        userStackView.addArrangedSubview(portfolioUrlValueLabel)
-        userStackView.addArrangedSubview(bioLabel)
-        userStackView.addArrangedSubview(bioValueLabel)
-        userStackView.addArrangedSubview(locationLabel)
-        userStackView.addArrangedSubview(locationValueLabel)
-        userStackView.addArrangedSubview(totalLikesLabel)
-        userStackView.addArrangedSubview(totalLikesValueLabel)
-        userStackView.addArrangedSubview(totalPhotosLabel)
-        userStackView.addArrangedSubview(totalPhotosValueLabel)
-        userStackView.addArrangedSubview(totalCollectionsLabel)
-        userStackView.addArrangedSubview(totalCollectionsValueLabel)
-        userStackView.addArrangedSubview(followedByUserLabel)
-        userStackView.addArrangedSubview(followedByUserValueLabel)
-        userStackView.addArrangedSubview(downloadsLabel)
-        userStackView.addArrangedSubview(downloadsValueLabel)
-        userStackView.addArrangedSubview(uploadsRemainingLabel)
-        userStackView.addArrangedSubview(uploadsRemainingValueLabel)
-        userStackView.addArrangedSubview(instagramUsernameLabel)
-        userStackView.addArrangedSubview(instagramUsernameValueLabel)
-        userStackView.addArrangedSubview(emailLabel)
-        userStackView.addArrangedSubview(emailValueLabel)
-        userStackView.addArrangedSubview(selfLinkLabel)
-        userStackView.addArrangedSubview(selfLinkValueLabel)
-        userStackView.addArrangedSubview(htmlLinkLabel)
-        userStackView.addArrangedSubview(htmlLinkValueLabel)
-        userStackView.addArrangedSubview(photosLinkLabel)
-        userStackView.addArrangedSubview(photosLinkValueLabel)
-        userStackView.addArrangedSubview(likesLinkLabel)
-        userStackView.addArrangedSubview(likesLinkValueLabel)
-        userStackView.addArrangedSubview(portfolioLinkLabel)
-        userStackView.addArrangedSubview(portfolioLinkValueLabel)
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Username"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.username))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "First name"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.firstName))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Last name"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.lastName))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Twitter username"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.twitterUsername ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Portfolio url"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.portfolioUrl ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Bio"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.bio ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Location"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.location ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Total likes"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: String(user.totalLikes ?? 0)))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Total photos"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: String(user.totalPhotos ?? 0)))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Total collections"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: String(user.totalCollections ?? 0)))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Followed by user"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.followedByUser ? "YES" : "NO"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Downloads"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: String(user.downloads ?? 0)))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Uploads remaining"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: String(user.uploadsRemaining ?? 0)))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Instagram username"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.instagramUsername ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Email"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.email ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Self link"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.selfLink ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "HTML link"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.htmlLink ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Photos link"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.photosLink ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Likes link"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.likesLink ?? "---"))
+        
+        userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Portfolio link"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.portfolioLink ?? "---"))
+    }
+}
+
+fileprivate extension UILabel {
+    static func createTitleLabel(with string: String?) -> UILabel {
+        let label = UILabel(frame: .zero)
+        label.text = string
+        label.font = UIFont.boldSystemFont(ofSize: 15.0)
+        label.numberOfLines = 0
+        return label
+    }
+    
+    static func createValueLabel(with string: String?) -> UILabel {
+        let label = UILabel(frame: .zero)
+        label.text = string
+        label.font = UIFont.systemFont(ofSize: 12.0, weight: UIFont.Weight.thin)
+        label.numberOfLines = 0
+        return label
     }
 }

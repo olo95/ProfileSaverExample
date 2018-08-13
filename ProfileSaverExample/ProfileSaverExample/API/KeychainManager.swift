@@ -43,11 +43,12 @@ class KeychainManager {
     }
     
     func isExpired(tokenIntDate: Int) -> Bool {
-        return Date(timeIntervalSince1970: Double(tokenIntDate)).addingTimeInterval(KeychainConstants.expirationInterval) < Date()
+        return Date(timeIntervalSince1970: Double(tokenIntDate)).addingTimeInterval(KeychainConstants.expirationInterval).timeIntervalSince1970 < Date().timeIntervalSince1970
     }
     
     func save(_ token: Token) throws {
         let rawTokenValue = "\(token.accessToken);\(token.createdAt)"
+        try remove(account: KeychainConstants.tokenAccount, with: KeychainConstants.tokenService)
         try save(account: KeychainConstants.tokenAccount, value: rawTokenValue, with: KeychainConstants.tokenService)
     }
     

@@ -18,7 +18,9 @@ class LoginWorker {
     
     func fetchUser(completionHandler: @escaping (User?) -> ()) {
         NetworkManager.shared.getUser(completionHandler: { user in
-            completionHandler(user)
+            DispatchQueue.main.async {
+                completionHandler(user)
+            }
         })
     }
 }

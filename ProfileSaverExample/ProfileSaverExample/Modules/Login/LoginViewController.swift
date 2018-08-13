@@ -12,6 +12,7 @@ protocol LoginViewControllerInput: class {
     func present(webModalViewController: WebModalViewController)
     func showLoginView()
     func showUserView(with user: User)
+    func tokenReceived()
 }
 
 class LoginViewController: UIViewController {
@@ -43,6 +44,10 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        determineView()
+    }
+    
+    private func determineView() {
         KeychainManager.shared.isValidatedTokenExist() ? output?.onUserLoggedIn() : output?.onUserNotLoggedIn()
     }
 }
@@ -58,5 +63,9 @@ extension LoginViewController: LoginViewControllerInput {
     
     func showUserView(with user: User) {
         mainView.addUserView(with: user)
+    }
+    
+    func tokenReceived() {
+        determineView()
     }
 }
