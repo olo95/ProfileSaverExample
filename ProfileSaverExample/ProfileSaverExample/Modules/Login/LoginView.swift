@@ -57,11 +57,14 @@ class LoginView: UIView {
         return view
     }()
     
-    let userStackView: UIStackView = {
-       let stackView = UIStackView(frame: .zero)
+    var userStackView: UIStackView!
+    
+    private func getNewStackView() -> UIStackView {
+        let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
+        stackView.spacing = 8
         return stackView
-    }()
+    }
     
     init() {
         super.init(frame: .zero)
@@ -118,6 +121,7 @@ class LoginView: UIView {
     }
     
     private func setUserView(with user: User) {
+        userStackView = getNewStackView()
         noUserLoadedView.removeFromSuperview()
         userScrollView.removeFromSuperview()
         addSubview(userScrollView)
@@ -208,6 +212,7 @@ fileprivate extension UILabel {
     static func createTitleLabel(with string: String?) -> UILabel {
         let label = UILabel(frame: .zero)
         label.text = string
+        label.textColor = ColorTheme.secondary.value
         label.font = UIFont.boldSystemFont(ofSize: 15.0)
         label.numberOfLines = 0
         return label
