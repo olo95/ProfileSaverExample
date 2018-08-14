@@ -18,20 +18,9 @@ class NetworkManager {
             completionHandler(nil)
             return
         }
-        make(request: request, completionHandler: { (response: Response) in
-            switch response {
-            case .success(let data):
-                do {
-                    completionHandler(try JSONDecoder().decode(Token.self, from: data))
-                } catch {
-                    print(error.localizedDescription)
-                    completionHandler(nil)
-                }
-            case .failure(let description):
-                print(description)
-                completionHandler(nil)
-            }
-        })
+        make(request: request) { (token: Token?) in
+            completionHandler(token)
+        }
     }
     
     func getUser(completionHandler: @escaping (User?) -> ()) {
@@ -39,11 +28,27 @@ class NetworkManager {
             completionHandler(nil)
             return
         }
-        make(request: request, completionHandler: { (response: Response) in
+        make(request: request) { (user: User?) in
+            completionHandler(user)
+        }
+    }
+    
+    func getRandomPhotos(count: Int, completionHandler: @escaping ([Photo]?) -> ()) {
+        guard let request = NetworkRouter.randomPhoto(count: count).request else {
+            completionHandler(nil)
+            return
+        }
+        make(request: request) { (photos: [Photo]?) in
+            completionHandler(photos)
+        }
+    }
+    
+    private func make<T: Decodable>(request: URLRequest, completionHandler: @escaping (T?) -> ()) {
+        execute(request: request, completionHandler: { (response: Response) in
             switch response {
             case .success(let data):
                 do {
-                    completionHandler(try JSONDecoder().decode(User.self, from: data))
+                    completionHandler(try JSONDecoder().decode(T.self, from: data))
                 } catch {
                     print(error.localizedDescription)
                     completionHandler(nil)
@@ -55,7 +60,7 @@ class NetworkManager {
         })
     }
     
-    private func make(request: URLRequest, completionHandler: @escaping (Response) -> ()) {
+    private func execute(request: URLRequest, completionHandler: @escaping (Response) -> ()) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error { completionHandler(Response.failure(description: error.localizedDescription)) }
             if let data = data { completionHandler(Response.success(data: data)) }

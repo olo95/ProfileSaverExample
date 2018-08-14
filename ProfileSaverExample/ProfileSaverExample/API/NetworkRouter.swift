@@ -12,6 +12,7 @@ enum NetworkRouter {
     case user
     case authorize
     case token(code : String)
+    case randomPhoto(count: Int)
     
     var request: URLRequest? {
         switch self {
@@ -45,13 +46,15 @@ enum NetworkRouter {
             return urlComponents.url?.absoluteString
         case .token:
             return URL(string: infoPlist.baseOauthUrl + "token")?.absoluteString
+        case .randomPhoto:
+            return URL(string: infoPlist.baseUrl + "photos/random")?.absoluteString
         }
     }
     
     var requestType: String? {
         switch self {
         case .authorize: return nil
-        case .user: return "GET"
+        case .user, .randomPhoto: return "GET"
         case .token: return "POST"
         }
     }
@@ -64,6 +67,8 @@ enum NetworkRouter {
                     URLQueryItem(name: "redirect_uri", value: infoPlist.redirectUri + "://authorization.callback"),
                     URLQueryItem(name: "response_type", value: "code"),
                     URLQueryItem(name: "scope", value: "public read_user")]
+        case .randomPhoto(let count):
+            return [URLQueryItem(name: "count", value: String(count))]
         default:
             return []
         }
