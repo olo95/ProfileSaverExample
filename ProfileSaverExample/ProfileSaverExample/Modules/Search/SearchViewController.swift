@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchViewControllerInput: class {
-    
+    func randomPhotosReceived(dataSource: UICollectionViewDataSource)
 }
 
 class SearchViewController: UIViewController {
@@ -23,8 +23,24 @@ class SearchViewController: UIViewController {
     override func loadView() {
         view = SearchView()
     }
+    
+    override func viewDidLoad() {
+        if let navigationController = navigationController {
+            router = SearchRouter(navigationController: navigationController)
+        }
+    }
+    
+    private func setSearchButton() {
+        mainView.photoSearchQueryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(searchButtonTapped)))
+    }
+    
+    @objc private func searchButtonTapped() {
+        
+    }
 }
 
 extension SearchViewController: SearchViewControllerInput {
-    
+    func randomPhotosReceived(dataSource: UICollectionViewDataSource) {
+        mainView.randomPhotosCollectionView.dataSource = dataSource
+    }
 }

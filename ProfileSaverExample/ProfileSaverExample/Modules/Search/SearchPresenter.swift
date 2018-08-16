@@ -9,7 +9,8 @@
 import Foundation
 
 protocol SearchPresenterInput: class {
-    
+    func present(randomPhotos: [Photo])
+    func randomPhotosFailedToLoad()
 }
 
 class SearchPresenter {
@@ -17,5 +18,7 @@ class SearchPresenter {
 }
 
 extension SearchPresenter: SearchPresenterInput {
-    
+    func present(randomPhotos: [Photo]) {
+        
+    }
 }

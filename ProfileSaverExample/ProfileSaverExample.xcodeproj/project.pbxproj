@@ -15,6 +15,10 @@
 		EC365BD52123220200BC1D5A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC365BD42123220200BC1D5A /* Location.swift */; };
 		EC378B2E211CF81F000757DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC378B2D211CF81F000757DB /* User.swift */; };
 		EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD3102113ACD000605E03 /* KeychainManager.swift */; };
+		EC84912C2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */; };
+		EC84912F2125D26900B39AE4 /* PhotosCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84912E2125D26900B39AE4 /* PhotosCollectionView.swift */; };
+		EC8491312125D3C900B39AE4 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8491302125D3C900B39AE4 /* PhotosCollectionViewCell.swift */; };
+		EC8491332125D89D00B39AE4 /* PhotosCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8491322125D89D00B39AE4 /* PhotosCollectionViewFlowLayout.swift */; };
 		EC84DF852115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */; };
 		EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8514242114AA2800860E50 /* InfoPlist.swift */; };
 		EC95E8B621160C01007119AC /* RequestTokenBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B521160C01007119AC /* RequestTokenBody.swift */; };
@@ -76,6 +80,10 @@
 		EC365BD42123220200BC1D5A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EC378B2D211CF81F000757DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC4DD3102113ACD000605E03 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		EC84912E2125D26900B39AE4 /* PhotosCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionView.swift; sourceTree = "<group>"; };
+		EC8491302125D3C900B39AE4 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC8491322125D89D00B39AE4 /* PhotosCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverInfoPlistTests.swift; sourceTree = "<group>"; };
 		EC8514242114AA2800860E50 /* InfoPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		EC95E8B521160C01007119AC /* RequestTokenBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenBody.swift; sourceTree = "<group>"; };
@@ -160,6 +168,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC8491342125D90600B39AE4 /* PhotosCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EC84912E2125D26900B39AE4 /* PhotosCollectionView.swift */,
+				EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */,
+				EC8491302125D3C900B39AE4 /* PhotosCollectionViewCell.swift */,
+				EC8491322125D89D00B39AE4 /* PhotosCollectionViewFlowLayout.swift */,
+			);
+			path = PhotosCollectionView;
+			sourceTree = "<group>";
+		};
 		EC9A37A62111C5FF00F481D5 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +256,7 @@
 		ECC7FE342111C74100ADFFD2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EC8491342125D90600B39AE4 /* PhotosCollectionView */,
 				ECA0D84C2117448900830971 /* WebModal */,
 				ECC7FE382111C8AD00ADFFD2 /* TabBar */,
 				ECC7FE372111C75500ADFFD2 /* Search */,
@@ -496,6 +516,7 @@
 				ECC7FE652111F38400ADFFD2 /* SearchView.swift in Sources */,
 				ECC7FE3C2111CD1A00ADFFD2 /* SearchViewController.swift in Sources */,
 				ECC7FE4F2111D5BB00ADFFD2 /* LoginInteractor.swift in Sources */,
+				EC8491312125D3C900B39AE4 /* PhotosCollectionViewCell.swift in Sources */,
 				ECAF8750211B66B5000F7EE0 /* Token.swift in Sources */,
 				ECC7FE3A2111CB2500ADFFD2 /* TabBarViewController.swift in Sources */,
 				EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */,
@@ -506,10 +527,12 @@
 				EC365BD52123220200BC1D5A /* Location.swift in Sources */,
 				EC365BCF21231BCB00BC1D5A /* Photo.swift in Sources */,
 				ECC7FE552111D76400ADFFD2 /* ProfileRouter.swift in Sources */,
+				EC84912F2125D26900B39AE4 /* PhotosCollectionView.swift in Sources */,
 				ECA0D8502118B2E500830971 /* KeychainConstants.swift in Sources */,
 				ECC7FE472111D58F00ADFFD2 /* ProfileViewController.swift in Sources */,
 				ECC7FE572111D76D00ADFFD2 /* LoginRouter.swift in Sources */,
 				ECC7FE4B2111D5A500ADFFD2 /* ProfilePresenter.swift in Sources */,
+				EC8491332125D89D00B39AE4 /* PhotosCollectionViewFlowLayout.swift in Sources */,
 				EC95E8B621160C01007119AC /* RequestTokenBody.swift in Sources */,
 				ECC7FE5B2111DC3600ADFFD2 /* ProfileWorker.swift in Sources */,
 				EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */,
@@ -523,6 +546,7 @@
 				ECA0D84E211744B000830971 /* WebModalViewController.swift in Sources */,
 				ECC7FE592111DC2500ADFFD2 /* SearchWorker.swift in Sources */,
 				ECAF8754211B6FF9000F7EE0 /* Response.swift in Sources */,
+				EC84912C2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift in Sources */,
 				EC9A37B32111C60000F481D5 /* AppDelegate.swift in Sources */,
 				EC365BD3212321F800BC1D5A /* UserCollection.swift in Sources */,
 				ECC7FE672111F38D00ADFFD2 /* ProfileView.swift in Sources */,

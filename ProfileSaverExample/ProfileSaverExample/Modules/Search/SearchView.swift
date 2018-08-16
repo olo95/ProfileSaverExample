@@ -11,12 +11,17 @@ import MaterialComponents.MaterialTextFields
 
 class SearchView: UIView {
     
-    let scrollView = UIScrollView()
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = ColorTheme.surface.value
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
     
-    let contentView: UIView = {
+    private let contentView: UIView = {
         let view = UIView()
-        view.backgroundColor = ColorTheme.background.value
-        return UIView()
+        view.backgroundColor = ColorTheme.surface.value
+        return view
     }()
     
     let photoSearchQueryTextField: MDCTextField = {
@@ -27,13 +32,16 @@ class SearchView: UIView {
     
     let photoSearchQueryButton: MDCButton = {
         let button = MDCButton()
+        button.backgroundColor = ColorTheme.secondary.value
+        button.layer.cornerRadius = 8
         button.setTitle("SEARCH", for: .normal)
+        button.setTitleColor(ColorTheme.surface.value, for: .normal)
         return button
     }()
     
     let randomPhotosContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = ColorTheme.onBackground.value
+        view.backgroundColor = ColorTheme.primaryVariant.value
         view.layer.cornerRadius = 8
         view.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
         view.layer.shadowRadius = 3.0
@@ -42,12 +50,15 @@ class SearchView: UIView {
     }()
     
     let randomPhotosTitleLabel: UILabel = {
-        return UILabel(frame: .zero)
+        let label = UILabel()
+        label.text = "RANDOM PHOTOS"
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        return label
     }()
     
     let randomPhotosCollectionView: UICollectionView = {
-        let collectionViewFlowLayout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+        let collectionViewFlowLayout = PhotosCollectionViewFlowLayout()
+        let collectionView = PhotosCollectionView(collectionViewFlowLayout: collectionViewFlowLayout)
         return collectionView
     }()
     
@@ -55,7 +66,6 @@ class SearchView: UIView {
         super.init(frame: .zero)
         initTextInputControllers()
         setLayout()
-        backgroundColor = UIColor.red
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,6 +74,8 @@ class SearchView: UIView {
     
     private func initTextInputControllers() {
         photoSearchQueryTextInputController.placeholderText = "Type tags"
+        photoSearchQueryTextInputController.activeColor = ColorTheme.secondary.value
+        photoSearchQueryTextInputController.normalColor = ColorTheme.secondaryVariant.value
     }
     
     private func setLayout() {
@@ -109,6 +121,12 @@ class SearchView: UIView {
             make.right.equalTo(-8)
             make.left.equalTo(8)
             make.bottom.equalTo(-16)
+        }
+        
+        randomPhotosTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(16)
+            make.right.equalTo(-8)
+            make.left.equalTo(8)
         }
     }
 }

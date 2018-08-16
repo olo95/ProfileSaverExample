@@ -6,14 +6,17 @@
 //  Copyright © 2018 Alexander Stolar. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SearchRouterInput: class {
     
 }
 
 class SearchRouter {
-    
+    let navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
 }
 
 extension SearchRouter: SearchRouterInput {

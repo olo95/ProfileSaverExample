@@ -8,10 +8,13 @@
 
 import Foundation
 
-protocol SearchWorkerInput: class {
-    
-}
-
 class SearchWorker {
-    weak var input: SearchWorkerInput?
+    
+    func getRandomPhotos(count: Int, completionHandler: @escaping ([Photo]?) -> ()) {
+        NetworkManager.shared.getRandomPhotos(count: count) { photos in
+            DispatchQueue.main.async {
+                completionHandler(photos)
+            }
+        }
+    }
 }

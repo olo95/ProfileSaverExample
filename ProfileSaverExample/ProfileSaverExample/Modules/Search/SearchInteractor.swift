@@ -9,13 +9,23 @@
 import Foundation
 
 protocol SearchInteractorInput: class {
-    
+    func getRandomPhotos()
 }
 
 class SearchInteractor {
     var output: SearchPresenterInput?
+    let worker = SearchWorker()
 }
 
 extension SearchInteractor: SearchInteractorInput {
-    
+    func getRandomPhotos() {
+        worker.getRandomPhotos(count: 8) { [weak self] photos in
+            guard let `self` = self else { return }
+            guard let photos = photos else {
+                self.output?.randomPhotosFailedToLoad()
+                return
+            }
+            self.output?.present(randomPhotos: photos)
+        }
+    }
 }
