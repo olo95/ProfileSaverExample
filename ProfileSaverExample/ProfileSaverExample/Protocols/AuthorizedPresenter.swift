@@ -10,7 +10,6 @@ import Foundation
 
 protocol AuthorizedPresenter {
     func present(webModalViewController: WebModalViewController)
-    func showUserView(with user: User)
     func showLoginView()
     func showFetchUserError()
     func tokenReceived()

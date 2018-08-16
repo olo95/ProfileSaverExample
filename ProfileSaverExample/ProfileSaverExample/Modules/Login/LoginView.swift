@@ -11,15 +11,7 @@ import MaterialComponents.MaterialButtons
 
 class LoginView: UIView {
     
-    let noUserLoggedView: NoUserLoggedView = {
-        let view = NoUserLoggedView()
-        view.backgroundColor = ColorTheme.surface.value
-        view.layer.cornerRadius = 8
-        view.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        view.layer.shadowRadius = 3.0
-        view.layer.shadowOpacity = 0.5
-        return view
-    }()
+    let noUserLoggedView = NoUserLoggedView()
     
     let userScrollView: UIScrollView = {
        return UIScrollView()

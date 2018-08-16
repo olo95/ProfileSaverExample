@@ -8,19 +8,6 @@
 
 import Foundation
 
-class LoginWorker {
+class LoginWorker: AuthorizedWorker {
     
-    func requestToken(with authorizationCode: String, completionHandler: @escaping (Token?) -> ()) {
-        NetworkManager.shared.getToken(with: authorizationCode) { token in
-            completionHandler(token)
-        }
-    }
-    
-    func fetchUser(completionHandler: @escaping (User?) -> ()) {
-        NetworkManager.shared.getUser() { user in
-            DispatchQueue.main.async {
-                completionHandler(user)
-            }
-        }
-    }
 }

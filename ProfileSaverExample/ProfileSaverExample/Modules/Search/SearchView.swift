@@ -24,6 +24,8 @@ class SearchView: UIView {
         return view
     }()
     
+    let noUserLoggedView = NoUserLoggedView()
+    
     let photoSearchQueryTextField: MDCTextField = {
         return MDCTextField(frame: .zero)
     }()
@@ -64,8 +66,8 @@ class SearchView: UIView {
     
     init() {
         super.init(frame: .zero)
+        backgroundColor = ColorTheme.background.value
         initTextInputControllers()
-        setLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,7 +80,7 @@ class SearchView: UIView {
         photoSearchQueryTextInputController.normalColor = ColorTheme.secondaryVariant.value
     }
     
-    private func setLayout() {
+    func setMainLayout() {
         addSubviews()
         setContentView()
     }
@@ -94,6 +96,16 @@ class SearchView: UIView {
     }
     
     private func setContentView() {
+        noUserLoggedView.removeFromSuperview()
+        scrollView.removeFromSuperview()
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(photoSearchQueryTextField)
+        contentView.addSubview(photoSearchQueryButton)
+        contentView.addSubview(randomPhotosContainerView)
+        randomPhotosContainerView.addSubview(randomPhotosTitleLabel)
+        randomPhotosContainerView.addSubview(randomPhotosCollectionView)
+        
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(0)
         }
@@ -125,6 +137,23 @@ class SearchView: UIView {
         
         randomPhotosTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(16)
+            make.right.equalTo(-8)
+            make.left.equalTo(8)
+        }
+    }
+    
+    func addNoUserLoggedView() {
+        setNoUserLoadedView()
+    }
+    
+    private func setNoUserLoadedView() {
+        
+        scrollView.removeFromSuperview()
+        noUserLoggedView.removeFromSuperview()
+        addSubview(noUserLoggedView)
+        
+        noUserLoggedView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
             make.right.equalTo(-8)
             make.left.equalTo(8)
         }

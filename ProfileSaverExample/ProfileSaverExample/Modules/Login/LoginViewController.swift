@@ -9,10 +9,7 @@
 import UIKit
 
 protocol LoginViewControllerInput: AuthorizedViewController {
-//    func present(webModalViewController: WebModalViewController)
-//    func showLoginView()
-//    func showUserView(with user: User)
-//    func tokenReceived()
+    func showUserView(with user: User)
 }
 
 class LoginViewController: UIViewController {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SearchWorker {
+class SearchWorker: AuthorizedWorker {
     
     func getRandomPhotos(count: Int, completionHandler: @escaping ([Photo]?) -> ()) {
         NetworkManager.shared.getRandomPhotos(count: count) { photos in

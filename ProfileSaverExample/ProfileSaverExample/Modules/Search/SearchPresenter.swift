@@ -11,6 +11,7 @@ import Foundation
 protocol SearchPresenterInput: AuthorizedPresenter {
     func present(randomPhotos: [Photo])
     func randomPhotosFailedToLoad()
+    func showSearchView()
 }
 
 class SearchPresenter {
@@ -18,16 +19,16 @@ class SearchPresenter {
 }
 
 extension SearchPresenter: SearchPresenterInput {
+    func showSearchView() {
+        output?.showSearchView()
+    }
+    
     func present(webModalViewController: WebModalViewController) {
         
     }
     
-    func showUserView(with user: User) {
-        
-    }
-    
     func showLoginView() {
-        
+        output?.showLoginView()
     }
     
     func showFetchUserError() {
@@ -35,7 +36,7 @@ extension SearchPresenter: SearchPresenterInput {
     }
     
     func tokenReceived() {
-        
+        output?.tokenReceived()
     }
     
     func tokenMissing() {

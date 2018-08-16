@@ -23,6 +23,7 @@
 		EC8491392125EB2500B39AE4 /* AuthorizedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8491382125EB2500B39AE4 /* AuthorizedInteractor.swift */; };
 		EC84913B2125EB3C00B39AE4 /* AuthorizedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84913A2125EB3C00B39AE4 /* AuthorizedPresenter.swift */; };
 		EC84913E2125ED1000B39AE4 /* NoUserLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84913D2125ED1000B39AE4 /* NoUserLoggedView.swift */; };
+		EC8491402125F32500B39AE4 /* AuthorizedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84913F2125F32500B39AE4 /* AuthorizedWorker.swift */; };
 		EC84DF852115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */; };
 		EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8514242114AA2800860E50 /* InfoPlist.swift */; };
 		EC95E8B621160C01007119AC /* RequestTokenBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B521160C01007119AC /* RequestTokenBody.swift */; };
@@ -92,6 +93,7 @@
 		EC8491382125EB2500B39AE4 /* AuthorizedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedInteractor.swift; sourceTree = "<group>"; };
 		EC84913A2125EB3C00B39AE4 /* AuthorizedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedPresenter.swift; sourceTree = "<group>"; };
 		EC84913D2125ED1000B39AE4 /* NoUserLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUserLoggedView.swift; sourceTree = "<group>"; };
+		EC84913F2125F32500B39AE4 /* AuthorizedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedWorker.swift; sourceTree = "<group>"; };
 		EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverInfoPlistTests.swift; sourceTree = "<group>"; };
 		EC8514242114AA2800860E50 /* InfoPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		EC95E8B521160C01007119AC /* RequestTokenBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenBody.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				EC8491362125EB0000B39AE4 /* AuthorizedViewController.swift */,
 				EC8491382125EB2500B39AE4 /* AuthorizedInteractor.swift */,
 				EC84913A2125EB3C00B39AE4 /* AuthorizedPresenter.swift */,
+				EC84913F2125F32500B39AE4 /* AuthorizedWorker.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				ECA0D84B2117448400830971 /* WebModalView.swift in Sources */,
 				ECC7FE402111CD3900ADFFD2 /* SearchPresenter.swift in Sources */,
 				ECC7FE5D2111DC4000ADFFD2 /* LoginWorker.swift in Sources */,
+				EC8491402125F32500B39AE4 /* AuthorizedWorker.swift in Sources */,
 				ECC7FE452111D14F00ADFFD2 /* ColorTheme.swift in Sources */,
 				EC365BD52123220200BC1D5A /* Location.swift in Sources */,
 				EC365BCF21231BCB00BC1D5A /* Photo.swift in Sources */,

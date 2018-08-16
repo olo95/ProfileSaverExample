@@ -9,13 +9,8 @@
 import Foundation
 
 protocol LoginPresenterInput: AuthorizedPresenter {
-//    func present(webModalViewController: WebModalViewController)
-//    func showUserView(with user: User)
-//    func showLoginView()
-//    func showFetchUserError()
-//    func tokenReceived()
-//    func tokenMissing()
-//    func tokenFailedToSave()
+    func showUserView(with user: User)
+    func showSearchView()
 }
 
 class LoginPresenter {
@@ -23,8 +18,13 @@ class LoginPresenter {
 }
 
 extension LoginPresenter: LoginPresenterInput {
+    
     func showUserView(with user: User) {
         output?.showUserView(with: user)
+    }
+    
+    func showSearchView() {
+        
     }
     
     func showFetchUserError() {

@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchViewControllerInput: AuthorizedViewController {
     func randomPhotosReceived(dataSource: UICollectionViewDataSource)
+    func showSearchView()
 }
 
 class SearchViewController: UIViewController {
@@ -28,19 +29,29 @@ class SearchViewController: UIViewController {
         if let navigationController = navigationController {
             router = SearchRouter(navigationController: navigationController)
         }
-        if KeychainManager.shared.isValidatedTokenExist() {
-            output?.getRandomPhotos()
-        } else {
-            
-        }
+        setupButtons()
     }
     
-    private func setSearchButton() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        determineView()
+    }
+    
+    private func determineView() {
+        KeychainManager.shared.isValidatedTokenExist() ? output?.onUserLoggedIn() : output?.onUserNotLoggedIn()
+    }
+    
+    private func setupButtons() {
         mainView.photoSearchQueryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(searchButtonTapped)))
+        mainView.noUserLoggedView.noUserLoadedLoginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(loginButtonTapped)))
     }
     
     @objc private func searchButtonTapped() {
         
+    }
+    
+    @objc private func loginButtonTapped() {
+        output?.onLogin()
     }
 }
 
@@ -50,15 +61,16 @@ extension SearchViewController: SearchViewControllerInput {
     }
     
     func showLoginView() {
-        
+        mainView.addNoUserLoggedView()
     }
     
-    func showUserView(with user: User) {
-        
+    func showSearchView() {
+        mainView.setMainLayout()
+        output?.getRandomPhotos()
     }
     
     func tokenReceived() {
-        
+        determineView()
     }
     
     func randomPhotosReceived(dataSource: UICollectionViewDataSource) {

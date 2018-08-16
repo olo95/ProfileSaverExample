@@ -36,11 +36,20 @@ class NoUserLoggedView: UIView {
     
     init() {
         super.init(frame: .zero)
+        setDefaultAppearance()
         setLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setDefaultAppearance() {
+        backgroundColor = ColorTheme.surface.value
+        layer.cornerRadius = 8
+        layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0.5
     }
     
     private func setLayout() {

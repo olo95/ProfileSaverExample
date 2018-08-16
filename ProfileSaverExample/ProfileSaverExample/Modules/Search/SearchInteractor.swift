@@ -19,15 +19,16 @@ class SearchInteractor {
 
 extension SearchInteractor: SearchInteractorInput {
     func onUserNotLoggedIn() {
-        
+        output?.showLoginView()
     }
     
     func onUserLoggedIn() {
-        
+        output?.showSearchView()
     }
     
     func onLogin() {
-        
+        guard let stringPath = NetworkRouter.authorize.path, let authorizeUrl = URL(string: stringPath) else { return }
+        output?.present(webModalViewController: WebModalViewController(with: authorizeUrl, delegate: self))
     }
     
     func getRandomPhotos() {
@@ -39,5 +40,22 @@ extension SearchInteractor: SearchInteractorInput {
             }
             self.output?.present(randomPhotos: photos)
         }
+    }
+}
+
+extension SearchInteractor: WebModalViewOutput {
+    func didReceive(authenticationCode: String) {
+        worker.requestToken(with: authenticationCode, completionHandler: { [weak self] token in
+            if let token = token {
+                do {
+                    try KeychainManager.shared.save(token)
+                } catch {
+                    self?.output?.tokenFailedToSave()
+                }
+                self?.output?.tokenReceived()
+            } else {
+                self?.output?.tokenMissing()
+            }
+        })
     }
 }

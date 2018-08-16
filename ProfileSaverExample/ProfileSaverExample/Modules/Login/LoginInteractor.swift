@@ -9,9 +9,7 @@
 import Foundation
 
 protocol LoginInteractorInput: AuthorizedInteractor {
-//    func onUserNotLoggedIn()
-//    func onUserLoggedIn()
-//    func onLogin()
+    
 }
 
 class LoginInteractor {
