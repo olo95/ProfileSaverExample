@@ -9,11 +9,11 @@
 import Foundation
 
 struct User {
-    var id: String
-    var updatedAt: String
-    var username: String
-    var firstName: String
-    var lastName: String
+    var id: String?
+    var updatedAt: String?
+    var username: String?
+    var firstName: String?
+    var lastName: String?
     var twitterUsername: String?
     var portfolioUrl: String?
     var bio: String?
@@ -21,7 +21,7 @@ struct User {
     var totalLikes: Int?
     var totalPhotos: Int?
     var totalCollections: Int?
-    var followedByUser: Bool
+    var followedByUser: Bool?
     var downloads: Int?
     var uploadsRemaining: Int?
     var instagramUsername: String?
@@ -62,11 +62,11 @@ struct User {
 extension User: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: UserKeys.self)
-        id = try container.decode(String.self, forKey: .id)
-        updatedAt = try container.decode(String.self, forKey: .updatedAt)
-        username = try container.decode(String.self, forKey: .username)
-        firstName = try container.decode(String.self, forKey: .firstName)
-        lastName = try container.decode(String.self, forKey: .lastName)
+        id = try container.decodeIfPresent(String.self, forKey: .id)
+        updatedAt = try container.decodeIfPresent(String.self, forKey: .updatedAt)
+        username = try container.decodeIfPresent(String.self, forKey: .username)
+        firstName = try container.decodeIfPresent(String.self, forKey: .firstName)
+        lastName = try container.decodeIfPresent(String.self, forKey: .lastName)
         twitterUsername = try container.decodeIfPresent(String.self, forKey: .twitterUsername)
         portfolioUrl = try container.decodeIfPresent(String.self, forKey: .portfolioUrl)
         bio = try container.decodeIfPresent(String.self, forKey: .bio)
@@ -74,7 +74,7 @@ extension User: Decodable {
         totalLikes = try container.decodeIfPresent(Int.self, forKey: .totalLikes)
         totalPhotos = try container.decodeIfPresent(Int.self, forKey: .totalPhotos)
         totalCollections = try container.decodeIfPresent(Int.self, forKey: .totalCollections)
-        followedByUser = try container.decode(Bool.self, forKey: .followedByUser)
+        followedByUser = try container.decodeIfPresent(Bool.self, forKey: .followedByUser)
         downloads = try container.decodeIfPresent(Int.self, forKey: .downloads)
         uploadsRemaining = try container.decodeIfPresent(Int.self, forKey: .uploadsRemaining)
         instagramUsername = try container.decodeIfPresent(String.self, forKey: .instagramUsername)

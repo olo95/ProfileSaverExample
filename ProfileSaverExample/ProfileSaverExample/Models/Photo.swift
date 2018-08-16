@@ -20,10 +20,10 @@ struct Photo {
     var likedByUser: Bool
     var description: String?
     var exif: Exif?
-    var location: Location
+    var location: Location?
     var currentUserCollections: [UserCollection]?
 //    var categories: [String]
-    var user: User
+    var user: User?
     
     var raw: URL
     var full: URL
@@ -80,7 +80,7 @@ extension Photo: Decodable {
         likedByUser = try container.decode(Bool.self, forKey: .likedByUser)
         description = try container.decodeIfPresent(String.self, forKey: .description)
         exif = try container.decodeIfPresent(Exif.self, forKey: .exif)
-        location = try container.decode(Location.self, forKey: .location)
+        location = try container.decodeIfPresent(Location.self, forKey: .location)
         currentUserCollections = try container.decodeIfPresent([UserCollection].self, forKey: .currentUserCollections)
         let urlsContainer = try container.nestedContainer(keyedBy: PhotoKeys.self, forKey: .urls)
         raw = try urlsContainer.decode(URL.self, forKey: .raw)
@@ -94,6 +94,6 @@ extension Photo: Decodable {
         html = try linksContainer.decode(URL.self, forKey: .html)
         download = try linksContainer.decode(URL.self, forKey: .download)
         downloadLocation = try linksContainer.decode(URL.self, forKey: .downloadLocation)
-        user = try container.decode(User.self, forKey: .user)
+        user = try container.decodeIfPresent(User.self, forKey: .user)
     }
 }

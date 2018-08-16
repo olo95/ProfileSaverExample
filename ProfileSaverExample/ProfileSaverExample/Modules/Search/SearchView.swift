@@ -140,6 +140,14 @@ class SearchView: UIView {
             make.right.equalTo(-8)
             make.left.equalTo(8)
         }
+        
+        randomPhotosCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(randomPhotosTitleLabel.snp.bottom).offset(8)
+            make.left.equalTo(8)
+            make.right.equalTo(-8)
+            make.bottom.equalTo(-8)
+            make.height.greaterThanOrEqualTo(1)
+        }
     }
     
     func addNoUserLoggedView() {

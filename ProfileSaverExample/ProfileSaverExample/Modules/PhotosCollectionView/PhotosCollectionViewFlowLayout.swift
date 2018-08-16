@@ -12,6 +12,7 @@ class PhotosCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     override init() {
         super.init()
+        itemSize = CGSize(width: 50.0, height: 50.0)
     }
     
     required init?(coder aDecoder: NSCoder) {

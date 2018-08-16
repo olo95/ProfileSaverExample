@@ -122,7 +122,7 @@ class LoginView: UIView {
         userStackView.addArrangedSubview(UILabel.createValueLabel(with: String(user.totalCollections ?? 0)))
         
         userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Followed by user"))
-        userStackView.addArrangedSubview(UILabel.createValueLabel(with: user.followedByUser ? "YES" : "NO"))
+        userStackView.addArrangedSubview(UILabel.createValueLabel(with: (user.followedByUser ?? false) ? "YES" : "NO"))
         
         userStackView.addArrangedSubview(UILabel.createTitleLabel(with: "Downloads"))
         userStackView.addArrangedSubview(UILabel.createValueLabel(with: String(user.downloads ?? 0)))

@@ -21,14 +21,15 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setLayout()
     }
     
     func configureCell(with imageId: String, imageUrl: URL) {
         self.imageId = imageId
         self.imageUrl = imageUrl
+        downloadImage(with: imageUrl)
     }
     
     func downloadImage(with url: URL) {
@@ -41,7 +42,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
                     self.imageView.image = image
                 }).startAnimation()
             }
-        }
+        }.resume()
     }
     
     required init?(coder aDecoder: NSCoder) {

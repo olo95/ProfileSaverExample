@@ -9,12 +9,12 @@
 import Foundation
 
 struct Exif {
-    var make: String
-    var model: String
-    var exposureTime: String
-    var aperture: String
-    var focalLength: String
-    var iso: Int
+    var make: String?
+    var model: String?
+    var exposureTime: String?
+    var aperture: String?
+    var focalLength: String?
+    var iso: Int?
     
     enum ExifKeys: String, CodingKey {
         case make
@@ -29,11 +29,11 @@ struct Exif {
 extension Exif: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ExifKeys.self)
-        make = try container.decode(String.self, forKey: .make)
-        model = try container.decode(String.self, forKey: .model)
-        exposureTime = try container.decode(String.self, forKey: .exposureTime)
-        aperture = try container.decode(String.self, forKey: .aperture)
-        focalLength = try container.decode(String.self, forKey: .focalLength)
-        iso = try container.decode(Int.self, forKey: .iso)
+        make = try container.decodeIfPresent(String.self, forKey: .make)
+        model = try container.decodeIfPresent(String.self, forKey: .model)
+        exposureTime = try container.decodeIfPresent(String.self, forKey: .exposureTime)
+        aperture = try container.decodeIfPresent(String.self, forKey: .aperture)
+        focalLength = try container.decodeIfPresent(String.self, forKey: .focalLength)
+        iso = try container.decodeIfPresent(Int.self, forKey: .iso)
     }
 }

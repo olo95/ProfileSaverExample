@@ -9,14 +9,15 @@
 import Foundation
 
 struct Location {
-    var city: String
-    var country: String
-    var latitude: Double
-    var longitude: Double
+    var city: String?
+    var country: String?
+    var latitude: Double?
+    var longitude: Double?
     
     enum LocationKeys: String, CodingKey {
         case city
         case country
+        case position
         case latitude
         case longitude
     }
@@ -25,9 +26,10 @@ struct Location {
 extension Location: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: LocationKeys.self)
-        city = try container.decode(String.self, forKey: .city)
-        country = try container.decode(String.self, forKey: .country)
-        latitude = try container.decode(Double.self, forKey: .latitude)
-        longitude = try container.decode(Double.self, forKey: .longitude)
+        city = try container.decodeIfPresent(String.self, forKey: .city)
+        country = try container.decodeIfPresent(String.self, forKey: .country)
+        let positionContainer = try container.nestedContainer(keyedBy: LocationKeys.self, forKey: .position)
+        latitude = try positionContainer.decodeIfPresent(Double.self, forKey: .latitude)
+        longitude = try positionContainer.decodeIfPresent(Double.self, forKey: .longitude)
     }
 }
