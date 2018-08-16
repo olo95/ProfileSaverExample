@@ -14,9 +14,9 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "PhotosCollectionViewCell"
     
     var imageId: String?
-    var image: UIImage?
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: image)
+    var imageUrl: URL?
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         return imageView
     }()
@@ -26,9 +26,22 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         setLayout()
     }
     
-    func configureCell(with imageId: String, image: UIImage) {
+    func configureCell(with imageId: String, imageUrl: URL) {
         self.imageId = imageId
-        self.image = image
+        self.imageUrl = imageUrl
+    }
+    
+    func downloadImage(with url: URL) {
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            guard let `self` = self, error == nil, let data = data, let image = UIImage(data: data) else {
+                return
+            }
+            DispatchQueue.main.async {
+                UIViewPropertyAnimator(duration: 1.0, dampingRatio: 1.0, animations: {
+                    self.imageView.image = image
+                }).startAnimation()
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

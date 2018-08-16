@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
         if let navigationController = navigationController {
             router = SearchRouter(navigationController: navigationController)
         }
+        output?.getRandomPhotos()
     }
     
     private func setSearchButton() {

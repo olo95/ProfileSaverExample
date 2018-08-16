@@ -29,6 +29,12 @@ enum NetworkRouter {
             urlRequest.httpMethod = requestType
             urlRequest.allHTTPHeaderFields = headers
             return urlRequest
+        case .randomPhoto:
+            guard let path = path, let url = URL(string: path) else { return nil }
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = requestType
+            urlRequest.allHTTPHeaderFields = headers
+            return urlRequest
         default:
             return nil
         }
@@ -47,7 +53,9 @@ enum NetworkRouter {
         case .token:
             return URL(string: infoPlist.baseOauthUrl + "token")?.absoluteString
         case .randomPhoto:
-            return URL(string: infoPlist.baseUrl + "photos/random")?.absoluteString
+            guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "photos/random") else { return nil }
+            urlComponents.queryItems = parameters
+            return urlComponents.url?.absoluteString
         }
     }
     
@@ -86,8 +94,8 @@ enum NetworkRouter {
     
     var headers: [String : String]? {
         switch self {
-        case .user:
-            guard let token = KeychainManager.shared.token() else { return nil }
+        case .user, .randomPhoto:
+            guard KeychainManager.shared.isValidatedTokenExist(), let token = KeychainManager.shared.token() else { return nil }
             return ["Content-Type": "application/json", "Accept": "application/json", "Accept-Version": "v1", "Authorization": "Bearer \(token.rawValue)" ]
         default:
             return ["Content-Type": "application/json", "Accept": "application/json", "Accept-Version": "v1"]

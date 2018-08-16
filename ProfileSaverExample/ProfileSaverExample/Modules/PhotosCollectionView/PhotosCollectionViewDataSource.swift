@@ -10,9 +10,9 @@ import UIKit
 
 class PhotosCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    private var data: [(id: String, image: UIImage)]
+    private var data: [(id: String, imageUrl: URL)]
     
-    init(data: [(id: String, image: UIImage)]) {
+    init(data: [(id: String, imageUrl: URL)]) {
         self.data = data
         super.init()
     }
@@ -25,7 +25,7 @@ class PhotosCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.reuseIdentifier, for: indexPath) as? PhotosCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.configureCell(with: data[indexPath.row].id, image: data[indexPath.row].image)
+        cell.configureCell(with: data[indexPath.row].id, imageUrl: data[indexPath.row].imageUrl)
         return cell
     }
 }

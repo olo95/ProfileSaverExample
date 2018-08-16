@@ -38,9 +38,26 @@ class NetworkManager {
             completionHandler(nil)
             return
         }
-        make(request: request) { (photos: [Photo]?) in
+        makeArray(request: request) { (photos: [Photo]?) in
             completionHandler(photos)
         }
+    }
+    
+    private func makeArray<T: Decodable>(request: URLRequest, completionHandler: @escaping ([T]?) -> ()) {
+        execute(request: request, completionHandler: { (response: Response) in
+            switch response {
+            case .success(let data):
+                do {
+                    completionHandler(try JSONDecoder().decode([T].self, from: data))
+                } catch {
+                    print(error.localizedDescription)
+                    completionHandler(nil)
+                }
+            case .failure(let description):
+                print(description)
+                completionHandler(nil)
+            }
+        })
     }
     
     private func make<T: Decodable>(request: URLRequest, completionHandler: @escaping (T?) -> ()) {
