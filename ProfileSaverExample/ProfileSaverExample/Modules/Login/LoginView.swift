@@ -129,7 +129,6 @@ class LoginView: UIView {
         userView.addSubview(userStackView)
         
         userScrollView.snp.makeConstraints { make in
-            make.top.equalTo(0)
             make.edges.equalTo(0)
         }
         
