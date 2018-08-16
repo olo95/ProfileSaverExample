@@ -24,7 +24,7 @@ extension SearchPresenter: SearchPresenterInput {
     }
     
     func present(webModalViewController: WebModalViewController) {
-        
+        output?.present(webModalViewController: webModalViewController)
     }
     
     func showLoginView() {

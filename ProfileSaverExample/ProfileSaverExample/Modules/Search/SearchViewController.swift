@@ -57,7 +57,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: SearchViewControllerInput {
     func present(webModalViewController: WebModalViewController) {
-        
+        router?.present(viewController: webModalViewController)
     }
     
     func showLoginView() {

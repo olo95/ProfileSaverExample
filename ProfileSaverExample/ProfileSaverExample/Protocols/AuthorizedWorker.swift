@@ -17,7 +17,9 @@ extension AuthorizedWorker {
     
     func requestToken(with authorizationCode: String, completionHandler: @escaping (Token?) -> ()) {
         NetworkManager.shared.getToken(with: authorizationCode) { token in
-            completionHandler(token)
+            DispatchQueue.main.async {
+                completionHandler(token)
+            }
         }
     }
     

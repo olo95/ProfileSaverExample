@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchRouterInput: class {
-    
+    func present(viewController: UIViewController)
 }
 
 class SearchRouter {
@@ -20,5 +20,8 @@ class SearchRouter {
 }
 
 extension SearchRouter: SearchRouterInput {
-    
+    func present(viewController: UIViewController) {
+        viewController.modalPresentationStyle = .overCurrentContext
+        navigationController.present(viewController, animated: true, completion: nil)
+    }
 }
