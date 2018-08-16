@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SearchPresenterInput: class {
+protocol SearchPresenterInput: AuthorizedPresenter {
     func present(randomPhotos: [Photo])
     func randomPhotosFailedToLoad()
 }
@@ -18,6 +18,34 @@ class SearchPresenter {
 }
 
 extension SearchPresenter: SearchPresenterInput {
+    func present(webModalViewController: WebModalViewController) {
+        
+    }
+    
+    func showUserView(with user: User) {
+        
+    }
+    
+    func showLoginView() {
+        
+    }
+    
+    func showFetchUserError() {
+        
+    }
+    
+    func tokenReceived() {
+        
+    }
+    
+    func tokenMissing() {
+        
+    }
+    
+    func tokenFailedToSave() {
+        
+    }
+    
     func randomPhotosFailedToLoad() {
         
     }

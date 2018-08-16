@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol LoginPresenterInput: class {
-    func present(webModalViewController: WebModalViewController)
-    func showUserView(with user: User)
-    func showLoginView()
-    func showFetchUserError()
-    func tokenReceived()
-    func tokenMissing()
-    func tokenFailedToSave()
+protocol LoginPresenterInput: AuthorizedPresenter {
+//    func present(webModalViewController: WebModalViewController)
+//    func showUserView(with user: User)
+//    func showLoginView()
+//    func showFetchUserError()
+//    func tokenReceived()
+//    func tokenMissing()
+//    func tokenFailedToSave()
 }
 
 class LoginPresenter {

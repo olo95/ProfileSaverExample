@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol LoginViewControllerInput: class {
-    func present(webModalViewController: WebModalViewController)
-    func showLoginView()
-    func showUserView(with user: User)
-    func tokenReceived()
+protocol LoginViewControllerInput: AuthorizedViewController {
+//    func present(webModalViewController: WebModalViewController)
+//    func showLoginView()
+//    func showUserView(with user: User)
+//    func tokenReceived()
 }
 
 class LoginViewController: UIViewController {
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setupButtons() {
-        mainView.noUserLoadedLoginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(loginButtonTapped)))
+        mainView.noUserLoggedView.noUserLoadedLoginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(loginButtonTapped)))
     }
     
     @objc private func loginButtonTapped() {

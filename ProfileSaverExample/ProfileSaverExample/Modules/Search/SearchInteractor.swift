@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SearchInteractorInput: class {
+protocol SearchInteractorInput: AuthorizedInteractor {
     func getRandomPhotos()
 }
 
@@ -18,6 +18,18 @@ class SearchInteractor {
 }
 
 extension SearchInteractor: SearchInteractorInput {
+    func onUserNotLoggedIn() {
+        
+    }
+    
+    func onUserLoggedIn() {
+        
+    }
+    
+    func onLogin() {
+        
+    }
+    
     func getRandomPhotos() {
         worker.getRandomPhotos(count: 8) { [weak self] photos in
             guard let `self` = self else { return }

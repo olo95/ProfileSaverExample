@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol LoginInteractorInput: class {
-    func onUserNotLoggedIn()
-    func onUserLoggedIn()
-    func onLogin()
+protocol LoginInteractorInput: AuthorizedInteractor {
+//    func onUserNotLoggedIn()
+//    func onUserLoggedIn()
+//    func onLogin()
 }
 
 class LoginInteractor {

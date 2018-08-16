@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchViewControllerInput: class {
+protocol SearchViewControllerInput: AuthorizedViewController {
     func randomPhotosReceived(dataSource: UICollectionViewDataSource)
 }
 
@@ -28,7 +28,11 @@ class SearchViewController: UIViewController {
         if let navigationController = navigationController {
             router = SearchRouter(navigationController: navigationController)
         }
-        output?.getRandomPhotos()
+        if KeychainManager.shared.isValidatedTokenExist() {
+            output?.getRandomPhotos()
+        } else {
+            
+        }
     }
     
     private func setSearchButton() {
@@ -41,6 +45,22 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: SearchViewControllerInput {
+    func present(webModalViewController: WebModalViewController) {
+        
+    }
+    
+    func showLoginView() {
+        
+    }
+    
+    func showUserView(with user: User) {
+        
+    }
+    
+    func tokenReceived() {
+        
+    }
+    
     func randomPhotosReceived(dataSource: UICollectionViewDataSource) {
         mainView.randomPhotosCollectionView.dataSource = dataSource
     }
