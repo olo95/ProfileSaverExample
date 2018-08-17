@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import struct UIKit.CGSize
 
 class SearchWorker: AuthorizedWorker {
     
@@ -16,5 +17,9 @@ class SearchWorker: AuthorizedWorker {
                 completionHandler(photos)
             }
         }
+    }
+    
+    func computeRandomPhotosSize(with screenSize: CGSize) -> CGSize {
+        return CGSize(width: (screenSize.width / 3) - 8 - 8 - 8 - 8, height: (screenSize.height / 3) - 8 - 8 - 8 - 8)
     }
 }

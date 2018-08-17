@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import struct UIKit.CGSize
 
 protocol SearchInteractorInput: AuthorizedInteractor {
     func getRandomPhotos()
+    func determineRandomPhotosSize(from screenSize: CGSize)
 }
 
 class SearchInteractor {
@@ -40,6 +42,10 @@ extension SearchInteractor: SearchInteractorInput {
             }
             self.output?.present(randomPhotos: photos)
         }
+    }
+    
+    func determineRandomPhotosSize(from screenSize: CGSize) {
+        output?.changeRandomPhotos(size: worker.computeRandomPhotosSize(with: screenSize))
     }
 }
 

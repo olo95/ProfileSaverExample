@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import struct UIKit.CGSize
 
 protocol SearchPresenterInput: AuthorizedPresenter {
     func present(randomPhotos: [Photo])
     func randomPhotosFailedToLoad()
     func showSearchView()
+    func changeRandomPhotos(size: CGSize)
 }
 
 class SearchPresenter {
@@ -54,5 +56,9 @@ extension SearchPresenter: SearchPresenterInput {
     func present(randomPhotos: [Photo]) {
         let photosCollectionViewDataSource = PhotosCollectionViewDataSource(data: randomPhotos.map { return (id: $0.id, imageUrl: $0.small) })
         output?.randomPhotosReceived(dataSource: photosCollectionViewDataSource)
+    }
+    
+    func changeRandomPhotos(size: CGSize) {
+        output?.changeRandomPhotos(size: size)
     }
 }
