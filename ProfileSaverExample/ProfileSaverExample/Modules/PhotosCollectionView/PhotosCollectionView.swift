@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import class SnapKit.Constraint
 
 class PhotosCollectionView: UICollectionView {
+    
+    var randomPhotosCollectionViewHeightConstraint: Constraint?
     
     init(collectionViewFlowLayout: UICollectionViewFlowLayout) {
         super.init(frame: .zero, collectionViewLayout: collectionViewFlowLayout)

@@ -58,11 +58,10 @@ class SearchView: UIView {
         return label
     }()
     
-    private var randomPhotosCollectionViewHeightConstraint: Constraint?
-    
-    let randomPhotosCollectionView: UICollectionView = {
+    lazy var randomPhotosCollectionView: PhotosCollectionView = {
         let collectionViewFlowLayout = PhotosCollectionViewFlowLayout()
         let collectionView = PhotosCollectionView(collectionViewFlowLayout: collectionViewFlowLayout)
+        collectionViewFlowLayout.delegate = self
         collectionView.isScrollEnabled = false
         collectionView.backgroundColor = ColorTheme.primaryVariant.value
         return collectionView
@@ -150,7 +149,8 @@ class SearchView: UIView {
             make.left.equalTo(8)
             make.right.equalTo(-8)
             make.bottom.equalTo(-8)
-//            randomPhotosCollectionViewHeightConstraint = make.height.equalTo(1).priority(999).constraint
+            make.height.greaterThanOrEqualTo(1)
+            randomPhotosCollectionView.randomPhotosCollectionViewHeightConstraint = make.height.equalTo(1).priority(999).constraint
         }
     }
     
@@ -170,9 +170,11 @@ class SearchView: UIView {
             make.left.equalTo(8)
         }
     }
-    
+}
+
+extension SearchView: PhotosCollectionViewFlowLayoutDelegate {
     func validateRandomPhotosCollectionViewHeight() {
-        randomPhotosCollectionViewHeightConstraint?.layoutConstraints.first?.constant = randomPhotosCollectionView.collectionViewLayout.collectionViewContentSize.height
-        layoutIfNeeded()
+        randomPhotosCollectionView.randomPhotosCollectionViewHeightConstraint?.layoutConstraints.first?.constant = randomPhotosCollectionView.collectionViewLayout.collectionViewContentSize.height
+        randomPhotosCollectionView.collectionViewLayout.invalidateLayout()
     }
 }
