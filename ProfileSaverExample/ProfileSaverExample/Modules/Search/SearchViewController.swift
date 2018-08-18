@@ -11,7 +11,6 @@ import UIKit
 protocol SearchViewControllerInput: AuthorizedViewController {
     func randomPhotosReceived(dataSource: UICollectionViewDataSource)
     func showSearchView()
-    func changeRandomPhotos(size: CGSize)
 }
 
 class SearchViewController: UIViewController {
@@ -55,10 +54,6 @@ class SearchViewController: UIViewController {
     @objc private func loginButtonTapped() {
         output?.onLogin()
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        output?.determineRandomPhotosSize(from: size)
-    }
 }
 
 extension SearchViewController: SearchViewControllerInput {
@@ -83,14 +78,5 @@ extension SearchViewController: SearchViewControllerInput {
         self.dataSource = dataSource
         mainView.randomPhotosCollectionView.dataSource = dataSource
         mainView.randomPhotosCollectionView.reloadData()
-        output?.determineRandomPhotosSize(from: UIScreen.main.bounds.size)
-    }
-    
-    func changeRandomPhotos(size: CGSize) {
-        guard let flowLayout = mainView.randomPhotosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-            return
-        }
-        flowLayout.itemSize = size
-        mainView.validateRandomPhotosCollectionViewHeight()
     }
 }
