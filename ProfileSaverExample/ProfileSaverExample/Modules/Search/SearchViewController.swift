@@ -16,7 +16,7 @@ protocol SearchViewControllerInput: AuthorizedViewController {
 class SearchViewController: UIViewController {
     var output: SearchInteractorInput?
     var router: SearchRouterInput?
-    var dataSource: UICollectionViewDataSource?
+    var randomPhotosDataSource: UICollectionViewDataSource?
     
     private lazy var mainView: SearchView = {
        return view as! SearchView
@@ -75,8 +75,16 @@ extension SearchViewController: SearchViewControllerInput {
     }
     
     func randomPhotosReceived(dataSource: UICollectionViewDataSource) {
-        self.dataSource = dataSource
+        self.randomPhotosDataSource = dataSource
+        mainView.randomPhotosCollectionView.delegate = self
         mainView.randomPhotosCollectionView.dataSource = dataSource
         mainView.randomPhotosCollectionView.reloadData()
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.reuseIdentifier, for: indexPath) as? PhotosCollectionViewCell else { return }
+        
     }
 }

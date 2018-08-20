@@ -8,7 +8,14 @@
 
 import UIKit
 
-enum ColorTheme {
+class ColorThemeObjC: NSObject {
+    @objc var colorValue: UIColor
+    @objc init(colorTheme: ColorTheme) {
+        self.colorValue = colorTheme.value
+    }
+}
+
+@objc enum ColorTheme: Int {
     
     case primary
     case primaryVariant

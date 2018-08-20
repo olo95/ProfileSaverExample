@@ -27,7 +27,6 @@
 		EC84913E2125ED1000B39AE4 /* NoUserLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84913D2125ED1000B39AE4 /* NoUserLoggedView.swift */; };
 		EC8491402125F32500B39AE4 /* AuthorizedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84913F2125F32500B39AE4 /* AuthorizedWorker.swift */; };
 		EC8491422125FC1B00B39AE4 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8491412125FC1B00B39AE4 /* URLRequest+Extension.swift */; };
-		EC84914421260E3300B39AE4 /* PhotosCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84914321260E3300B39AE4 /* PhotosCollectionViewDelegate.swift */; };
 		EC84DF852115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */; };
 		EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8514242114AA2800860E50 /* InfoPlist.swift */; };
 		EC95E8B621160C01007119AC /* RequestTokenBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95E8B521160C01007119AC /* RequestTokenBody.swift */; };
@@ -104,7 +103,6 @@
 		EC84913D2125ED1000B39AE4 /* NoUserLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUserLoggedView.swift; sourceTree = "<group>"; };
 		EC84913F2125F32500B39AE4 /* AuthorizedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedWorker.swift; sourceTree = "<group>"; };
 		EC8491412125FC1B00B39AE4 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
-		EC84914321260E3300B39AE4 /* PhotosCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaverInfoPlistTests.swift; sourceTree = "<group>"; };
 		EC8514242114AA2800860E50 /* InfoPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		EC95E8B521160C01007119AC /* RequestTokenBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenBody.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 				EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */,
 				EC8491302125D3C900B39AE4 /* PhotosCollectionViewCell.swift */,
 				EC8491322125D89D00B39AE4 /* PhotosCollectionViewFlowLayout.swift */,
-				EC84914321260E3300B39AE4 /* PhotosCollectionViewDelegate.swift */,
 			);
 			path = PhotosCollectionView;
 			sourceTree = "<group>";
@@ -600,7 +597,6 @@
 				EC8514252114AA2800860E50 /* InfoPlist.swift in Sources */,
 				EC95E8B8211610B6007119AC /* RequestTokenResponse.swift in Sources */,
 				EC84913E2125ED1000B39AE4 /* NoUserLoggedView.swift in Sources */,
-				EC84914421260E3300B39AE4 /* PhotosCollectionViewDelegate.swift in Sources */,
 				ECC7FE3E2111CD2D00ADFFD2 /* SearchInteractor.swift in Sources */,
 				EC41025C212B0A1000F2D149 /* PhotoView.m in Sources */,
 				EC365BD1212321EF00BC1D5A /* Exif.swift in Sources */,

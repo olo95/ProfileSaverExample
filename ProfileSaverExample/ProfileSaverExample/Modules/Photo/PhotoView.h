@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Masonry.h"
 #import "MaterialButtons.h"
 
 @interface PhotoView : UIView
-@property (strong, nonatomic) UIView *optionsView;
+@property (strong, nonatomic) UIImageView *photoImageView;
 @property (strong, nonatomic) MDCButton *saveButton;
 @end

@@ -159,7 +159,6 @@ class SearchView: UIView {
     }
     
     private func setNoUserLoadedView() {
-        
         scrollView.removeFromSuperview()
         noUserLoggedView.removeFromSuperview()
         addSubview(noUserLoggedView)

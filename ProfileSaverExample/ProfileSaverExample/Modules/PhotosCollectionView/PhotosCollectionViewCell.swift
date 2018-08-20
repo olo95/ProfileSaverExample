@@ -38,8 +38,10 @@ class PhotosCollectionViewCell: UICollectionViewCell {
                 return
             }
             DispatchQueue.main.async {
+                self.imageView.alpha = 0.0
                 UIViewPropertyAnimator(duration: 1.0, dampingRatio: 1.0, animations: {
                     self.imageView.image = image
+                    self.imageView.alpha = 1.0
                 }).startAnimation()
             }
         }.resume()
