@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoViewController : UIViewController
--(instancetype)initWithImageUrl: (NSURL*)imageUrl :(int)imageId;
+-(instancetype)initWithImageUrl: (NSURL *)imageUrl :(NSString *) imageId;
 @end

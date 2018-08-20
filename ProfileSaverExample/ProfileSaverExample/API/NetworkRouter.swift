@@ -13,6 +13,7 @@ enum NetworkRouter {
     case authorize
     case token(code : String)
     case randomPhoto(count: Int)
+    case photo(id: String)
     
     var request: URLRequest? {
         switch self {
@@ -30,6 +31,12 @@ enum NetworkRouter {
             urlRequest.allHTTPHeaderFields = headers
             return urlRequest
         case .randomPhoto:
+            guard let path = path, let url = URL(string: path) else { return nil }
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = requestType
+            urlRequest.allHTTPHeaderFields = headers
+            return urlRequest
+        case .photo:
             guard let path = path, let url = URL(string: path) else { return nil }
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = requestType
@@ -56,13 +63,17 @@ enum NetworkRouter {
             guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "photos/random") else { return nil }
             urlComponents.queryItems = parameters
             return urlComponents.url?.absoluteString
+        case .photo:
+            guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "photos") else { return nil }
+            urlComponents.queryItems = parameters
+            return urlComponents.url?.absoluteString
         }
     }
     
     var requestType: String? {
         switch self {
         case .authorize: return nil
-        case .user, .randomPhoto: return "GET"
+        case .user, .randomPhoto, .photo: return "GET"
         case .token: return "POST"
         }
     }
@@ -77,6 +88,8 @@ enum NetworkRouter {
                     URLQueryItem(name: "scope", value: "public read_user")]
         case .randomPhoto(let count):
             return [URLQueryItem(name: "count", value: String(count))]
+        case .photo(let id):
+            return [URLQueryItem(name: "id", value: id)]
         default:
             return []
         }
@@ -94,7 +107,7 @@ enum NetworkRouter {
     
     var headers: [String : String]? {
         switch self {
-        case .user, .randomPhoto:
+        case .user, .randomPhoto, .photo:
             guard KeychainManager.shared.isValidatedTokenExist(), let token = KeychainManager.shared.token() else { return nil }
             return ["Content-Type": "application/json", "Accept": "application/json", "Accept-Version": "v1", "Authorization": "Bearer \(token.rawValue)" ]
         default:

@@ -17,7 +17,7 @@
 
 @implementation PhotoViewController
 
-- (instancetype)initWithImageUrl:(NSURL *)imageUrl :(int)imageId {
+- (instancetype)initWithImageUrl:(NSURL *)imageUrl :(NSString *)imageId {
     self = [super init];
     if (self) {
         self.imageId = imageId;

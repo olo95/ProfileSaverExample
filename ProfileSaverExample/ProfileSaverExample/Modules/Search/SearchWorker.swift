@@ -18,4 +18,12 @@ class SearchWorker: AuthorizedWorker {
             }
         }
     }
+    
+    func getPhoto(with id: String, completionHandler: @escaping (Photo?) -> ()) {
+        NetworkManager.shared.getPhoto(with: id) { photo in
+            DispatchQueue.main.async {
+                completionHandler(photo)
+            }
+        }
+    }
 }

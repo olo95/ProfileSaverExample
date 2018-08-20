@@ -9,14 +9,15 @@
 import UIKit
 
 protocol SearchViewControllerInput: AuthorizedViewController {
-    func randomPhotosReceived(dataSource: UICollectionViewDataSource)
+    func randomPhotosReceived(dataSource: PhotosCollectionViewDataSource)
     func showSearchView()
+    func present(webModalViewController: WebModalViewController)
+    func present(photoViewController: PhotoViewController)
 }
 
 class SearchViewController: UIViewController {
     var output: SearchInteractorInput?
     var router: SearchRouterInput?
-    var randomPhotosDataSource: UICollectionViewDataSource?
     
     private lazy var mainView: SearchView = {
        return view as! SearchView
@@ -57,6 +58,10 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: SearchViewControllerInput {
+    func present(photoViewController: PhotoViewController) {
+        router?.present(viewController: photoViewController)
+    }
+    
     func present(webModalViewController: WebModalViewController) {
         router?.present(viewController: webModalViewController)
     }
@@ -74,8 +79,8 @@ extension SearchViewController: SearchViewControllerInput {
         determineView()
     }
     
-    func randomPhotosReceived(dataSource: UICollectionViewDataSource) {
-        self.randomPhotosDataSource = dataSource
+    func randomPhotosReceived(dataSource: PhotosCollectionViewDataSource) {
+        output?.received(randomPhotosCollectionViewDataSource: dataSource)
         mainView.randomPhotosCollectionView.delegate = self
         mainView.randomPhotosCollectionView.dataSource = dataSource
         mainView.randomPhotosCollectionView.reloadData()
@@ -84,7 +89,6 @@ extension SearchViewController: SearchViewControllerInput {
 
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.reuseIdentifier, for: indexPath) as? PhotosCollectionViewCell else { return }
-        
+        output?.randomPhotoTapped(with: indexPath)
     }
 }

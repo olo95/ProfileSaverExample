@@ -43,6 +43,16 @@ class NetworkManager {
         }
     }
     
+    func getPhoto(with id: String, completionHandler: @escaping (Photo?) -> ()) {
+        guard let request = NetworkRouter.photo(id: id).request else {
+            completionHandler(nil)
+            return
+        }
+        make(request: request) { (photo: Photo?) in
+            completionHandler(photo)
+        }
+    }
+    
     private func makeArray<T: Decodable>(request: URLRequest, completionHandler: @escaping ([T]?) -> ()) {
         execute(request: request, completionHandler: { (response: Response) in
             switch response {

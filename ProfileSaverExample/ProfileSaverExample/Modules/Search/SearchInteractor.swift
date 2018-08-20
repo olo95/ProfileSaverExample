@@ -11,10 +11,13 @@ import struct UIKit.CGSize
 
 protocol SearchInteractorInput: AuthorizedInteractor {
     func getRandomPhotos()
+    func received(randomPhotosCollectionViewDataSource: PhotosCollectionViewDataSource)
+    func randomPhotoTapped(with indexPath: IndexPath)
 }
 
 class SearchInteractor {
     var output: SearchPresenterInput?
+    var randomPhotosCollectionViewDataSource: PhotosCollectionViewDataSource?
     let worker = SearchWorker()
 }
 
@@ -40,6 +43,18 @@ extension SearchInteractor: SearchInteractorInput {
                 return
             }
             self.output?.present(randomPhotos: photos)
+        }
+    }
+    
+    func received(randomPhotosCollectionViewDataSource: PhotosCollectionViewDataSource) {
+        self.randomPhotosCollectionViewDataSource = randomPhotosCollectionViewDataSource
+    }
+    
+    func randomPhotoTapped(with indexPath: IndexPath) {
+        guard let dataSource = randomPhotosCollectionViewDataSource, let imageId = dataSource.getImageId(from: indexPath) else { return }
+        worker.getPhoto(with: imageId) { [weak self] photo in
+            guard let `self` = self, let photo = photo else { return }
+            self.output?.presentImage(with: photo.regular, imageId: imageId)
         }
     }
 }

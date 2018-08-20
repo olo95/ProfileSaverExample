@@ -10,11 +10,15 @@ import UIKit
 
 class PhotosCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    private var data: [(id: String, imageUrl: URL)]
+    private var data: [(id: String?, imageUrl: URL)]
     
-    init(data: [(id: String, imageUrl: URL)]) {
+    init(data: [(id: String?, imageUrl: URL)]) {
         self.data = data
         super.init()
+    }
+    
+    func getImageId(from indexPath: IndexPath) -> String? {
+        return data[indexPath.row].id
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

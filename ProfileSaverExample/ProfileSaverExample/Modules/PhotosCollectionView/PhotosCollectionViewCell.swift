@@ -26,7 +26,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         setLayout()
     }
     
-    func configureCell(with imageId: String, imageUrl: URL) {
+    func configureCell(with imageId: String?, imageUrl: URL) {
         self.imageId = imageId
         self.imageUrl = imageUrl
         downloadImage(with: imageUrl)

@@ -9,9 +9,9 @@
 import Foundation
 
 struct Photo {
-    var id: String
-    var createdAt: String
-    var updatedAt: String
+    var id: String?
+    var createdAt: String?
+    var updatedAt: String?
     var width: Int
     var height: Int
     var color: String
@@ -69,7 +69,7 @@ struct Photo {
 extension Photo: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: PhotoKeys.self)
-        id = try container.decode(String.self, forKey: .id)
+        id = try container.decodeIfPresent(String.self, forKey: .id)
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode(String.self, forKey: .updatedAt)
         width = try container.decode(Int.self, forKey: .width)
