@@ -14,6 +14,8 @@
 		EC365BD3212321F800BC1D5A /* UserCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC365BD2212321F800BC1D5A /* UserCollection.swift */; };
 		EC365BD52123220200BC1D5A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC365BD42123220200BC1D5A /* Location.swift */; };
 		EC378B2E211CF81F000757DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC378B2D211CF81F000757DB /* User.swift */; };
+		EC410259212B09B500F2D149 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC410258212B09B500F2D149 /* PhotoViewController.m */; };
+		EC41025C212B0A1000F2D149 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC41025B212B0A1000F2D149 /* PhotoView.m */; };
 		EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD3102113ACD000605E03 /* KeychainManager.swift */; };
 		EC84912C2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */; };
 		EC84912F2125D26900B39AE4 /* PhotosCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84912E2125D26900B39AE4 /* PhotosCollectionView.swift */; };
@@ -86,6 +88,11 @@
 		EC365BD2212321F800BC1D5A /* UserCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollection.swift; sourceTree = "<group>"; };
 		EC365BD42123220200BC1D5A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EC378B2D211CF81F000757DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EC410256212B09B400F2D149 /* ProfileSaverExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProfileSaverExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		EC410257212B09B500F2D149 /* PhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		EC410258212B09B500F2D149 /* PhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		EC41025A212B0A1000F2D149 /* PhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
+		EC41025B212B0A1000F2D149 /* PhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 		EC4DD3102113ACD000605E03 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		EC84912E2125D26900B39AE4 /* PhotosCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionView.swift; sourceTree = "<group>"; };
@@ -182,6 +189,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC410255212B091A00F2D149 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				EC410257212B09B500F2D149 /* PhotoViewController.h */,
+				EC410258212B09B500F2D149 /* PhotoViewController.m */,
+				EC41025A212B0A1000F2D149 /* PhotoView.h */,
+				EC41025B212B0A1000F2D149 /* PhotoView.m */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 		EC8491342125D90600B39AE4 /* PhotosCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +264,7 @@
 				EC9A37B92111C60100F481D5 /* Assets.xcassets */,
 				EC9A37BB2111C60100F481D5 /* LaunchScreen.storyboard */,
 				EC9A37BE2111C60100F481D5 /* Info.plist */,
+				EC410256212B09B400F2D149 /* ProfileSaverExample-Bridging-Header.h */,
 			);
 			path = ProfileSaverExample;
 			sourceTree = "<group>";
@@ -291,6 +310,7 @@
 		ECC7FE342111C74100ADFFD2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EC410255212B091A00F2D149 /* Photo */,
 				EC84913C2125ECF600B39AE4 /* NoUserLogged */,
 				EC8491342125D90600B39AE4 /* PhotosCollectionView */,
 				ECA0D84C2117448900830971 /* WebModal */,
@@ -429,6 +449,7 @@
 				TargetAttributes = {
 					EC9A37AE2111C60000F481D5 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					EC9A37C22111C60100F481D5 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -484,6 +505,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ProfileSaverExample/Pods-ProfileSaverExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -493,6 +515,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -579,6 +602,7 @@
 				EC84913E2125ED1000B39AE4 /* NoUserLoggedView.swift in Sources */,
 				EC84914421260E3300B39AE4 /* PhotosCollectionViewDelegate.swift in Sources */,
 				ECC7FE3E2111CD2D00ADFFD2 /* SearchInteractor.swift in Sources */,
+				EC41025C212B0A1000F2D149 /* PhotoView.m in Sources */,
 				EC365BD1212321EF00BC1D5A /* Exif.swift in Sources */,
 				EC378B2E211CF81F000757DB /* User.swift in Sources */,
 				EC84913B2125EB3C00B39AE4 /* AuthorizedPresenter.swift in Sources */,
@@ -595,6 +619,7 @@
 				EC365BD3212321F800BC1D5A /* UserCollection.swift in Sources */,
 				ECC7FE672111F38D00ADFFD2 /* ProfileView.swift in Sources */,
 				ECC7FE532111D75800ADFFD2 /* SearchRouter.swift in Sources */,
+				EC410259212B09B500F2D149 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +774,7 @@
 			baseConfigurationReference = 4E463AFC3FA121F7684634FC /* Pods-ProfileSaverExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T289F6WJGZ;
 				INFOPLIST_FILE = ProfileSaverExample/Info.plist;
@@ -759,6 +785,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = olo95.ProfileSaverExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProfileSaverExample/ProfileSaverExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -769,6 +797,7 @@
 			baseConfigurationReference = B38B8D423424753F65D54D8D /* Pods-ProfileSaverExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T289F6WJGZ;
 				INFOPLIST_FILE = ProfileSaverExample/Info.plist;
@@ -779,6 +808,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = olo95.ProfileSaverExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProfileSaverExample/ProfileSaverExample-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

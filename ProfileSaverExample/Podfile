@@ -10,6 +10,7 @@ target 'ProfileSaverExample' do
   pod 'MaterialComponents/TextFields'
   pod 'MaterialComponents/Buttons'
   pod 'RealmSwift'
+  pod 'Masonry'
 
   target 'ProfileSaverExampleTests' do
     inherit! :search_paths
