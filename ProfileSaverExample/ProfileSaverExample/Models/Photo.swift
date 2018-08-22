@@ -15,7 +15,7 @@ struct Photo {
     var width: Int
     var height: Int
     var color: String
-    var downloads: Int
+    var downloads: Int?
     var likes: Int
     var likedByUser: Bool
     var description: String?
@@ -75,7 +75,7 @@ extension Photo: Decodable {
         width = try container.decode(Int.self, forKey: .width)
         height = try container.decode(Int.self, forKey: .height)
         color = try container.decode(String.self, forKey: .color)
-        downloads = try container.decode(Int.self, forKey: .downloads)
+        downloads = try container.decodeIfPresent(Int.self, forKey: .downloads)
         likes = try container.decode(Int.self, forKey: .likes)
         likedByUser = try container.decode(Bool.self, forKey: .likedByUser)
         description = try container.decodeIfPresent(String.self, forKey: .description)

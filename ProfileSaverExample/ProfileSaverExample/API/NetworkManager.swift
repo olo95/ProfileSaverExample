@@ -48,8 +48,8 @@ class NetworkManager {
             completionHandler(nil)
             return
         }
-        make(request: request) { (photo: Photo?) in
-            completionHandler(photo)
+        makeArray(request: request) { (photos: [Photo]?) in
+            completionHandler(photos?.first)
         }
     }
     

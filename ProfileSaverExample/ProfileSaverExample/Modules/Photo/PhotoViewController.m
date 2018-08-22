@@ -12,13 +12,13 @@
 @interface PhotoViewController ()
 @property (strong, nonatomic) PhotoView *mainView;
 @property (strong, nonatomic) NSURL* imageUrl;
-@property (nonatomic) int imageId;
+@property (strong, nonatomic) NSString* imageId;
 @end
 
 @implementation PhotoViewController
 
 - (instancetype)initWithImageUrl:(NSURL *)imageUrl :(NSString *)imageId {
-    self = [super init];
+    self = [super initWithNibName:NULL bundle:NULL];
     if (self) {
         self.imageId = imageId;
         self.imageUrl = imageUrl;
