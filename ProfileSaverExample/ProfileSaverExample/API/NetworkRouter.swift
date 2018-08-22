@@ -11,7 +11,7 @@ import Foundation
 enum NetworkRouter {
     case user
     case authorize
-    case token(code : String)
+    case token(code: String)
     case randomPhoto(count: Int)
     case photo(id: String)
     

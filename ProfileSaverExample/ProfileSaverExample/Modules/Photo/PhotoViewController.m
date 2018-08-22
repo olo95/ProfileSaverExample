@@ -26,14 +26,10 @@
     return self;
 }
 
-- (PhotoView*)mainView {
-    _mainView = (PhotoView*)self.view;
-    return _mainView;
-}
-
 - (void)loadView {
     [super loadView];
     self.view = [[PhotoView alloc] init];
+    _mainView = (PhotoView*)self.view;
 }
 
 - (void)viewDidLoad {
@@ -48,17 +44,16 @@
         UIImage *image = [[UIImage alloc] initWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!self) return;
-            self.mainView.photoImageView.image = image;
-//            [self.mainView.photoImageView setImage:image];
+            [self->_mainView.photoImageView setImage:image];
         });
     }] resume];
 }
 
 - (void)setupButtons {
-    [_mainView.saveButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveButtonTapped)]];
+    [_mainView.saveButton addTarget:self action: @selector(saveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)saveButtonTapped {
+- (void)saveButtonTapped:(id)sender {
     
 }
 
