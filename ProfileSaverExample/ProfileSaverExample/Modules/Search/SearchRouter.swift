@@ -21,7 +21,7 @@ class SearchRouter {
 
 extension SearchRouter: SearchRouterInput {
     func present(viewController: UIViewController) {
-        viewController.modalPresentationStyle = .overCurrentContext
+        navigationController.modalPresentationStyle = .overCurrentContext
         navigationController.present(viewController, animated: true, completion: nil)
     }
 }

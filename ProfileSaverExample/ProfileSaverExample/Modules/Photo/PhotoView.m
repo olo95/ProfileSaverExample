@@ -17,8 +17,6 @@
 
 @implementation PhotoView
 
-@synthesize photoImageView = _photoImageView;
-
 - (MDCButton *)saveButton {
     _saveButton = [[MDCButton alloc] init];
     _saveButton.backgroundColor = [[ColorThemeObjC alloc] initWithColorTheme:ColorThemeSecondary].colorValue;

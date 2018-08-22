@@ -27,7 +27,8 @@
 }
 
 - (PhotoView*)mainView {
-    return (PhotoView*)self.view;
+    _mainView = (PhotoView*)self.view;
+    return _mainView;
 }
 
 - (void)loadView {
@@ -47,7 +48,8 @@
         UIImage *image = [[UIImage alloc] initWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!self) return;
-            self->_mainView.photoImageView.image = image;
+            self.mainView.photoImageView.image = image;
+//            [self.mainView.photoImageView setImage:image];
         });
     }] resume];
 }

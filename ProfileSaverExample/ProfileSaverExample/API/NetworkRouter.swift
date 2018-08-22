@@ -63,8 +63,8 @@ enum NetworkRouter {
             guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "photos/random") else { return nil }
             urlComponents.queryItems = parameters
             return urlComponents.url?.absoluteString
-        case .photo:
-            guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "photos") else { return nil }
+        case .photo(let id):
+            guard var urlComponents = URLComponents(string: infoPlist.baseUrl + "photos/\(id)") else { return nil }
             urlComponents.queryItems = parameters
             return urlComponents.url?.absoluteString
         }
@@ -88,8 +88,6 @@ enum NetworkRouter {
                     URLQueryItem(name: "scope", value: "public read_user")]
         case .randomPhoto(let count):
             return [URLQueryItem(name: "count", value: String(count))]
-        case .photo(let id):
-            return [URLQueryItem(name: "id", value: id)]
         default:
             return []
         }
