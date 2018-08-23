@@ -46,8 +46,8 @@ class WebModalViewController: UIViewController {
         let translation = gestureRecognizer.translation(in: mainView)
         switch gestureRecognizer.state {
         case .changed:
-            mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant = 64 + translation.y
-            mainView.rootContainerBottomConstraint?.layoutConstraints.first?.constant = 0 + translation.y
+            mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant = 64 + translation.y / 1.5
+            mainView.rootContainerBottomConstraint?.layoutConstraints.first?.constant = 0 + translation.y / 1.5
             mainView.layoutIfNeeded()
         case .ended:
             guard let topConstraintConstant = mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant,
