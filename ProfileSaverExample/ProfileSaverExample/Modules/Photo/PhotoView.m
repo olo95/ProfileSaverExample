@@ -29,7 +29,8 @@
 - (void)setPhotoImageView:(UIImageView *)photoImageView {
     _photoImageView = photoImageView;
     _photoImageView.userInteractionEnabled = YES;
-    _photoImageView.layer.cornerRadius = 8;
+    _photoImageView.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;
+    _photoImageView.layer.cornerRadius = 16;
     _photoImageView.clipsToBounds = YES;
 }
 
@@ -54,7 +55,7 @@
 - (void)setContentView:(UIView *)contentView {
     _contentView = contentView;
     _contentView.backgroundColor = [[[ColorThemeObjC alloc] initWithColorTheme:ColorThemeOnSecondary].colorValue colorWithAlphaComponent:0.95];
-    _contentView.layer.cornerRadius = 8;
+    _contentView.layer.cornerRadius = 16;
     _contentView.layer.shadowOffset = CGSizeMake(2.0, 2.0);
     _contentView.layer.shadowRadius = 2.0;
     _contentView.layer.shadowOpacity = 0.5;

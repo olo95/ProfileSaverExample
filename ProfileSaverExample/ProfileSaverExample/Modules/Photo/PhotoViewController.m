@@ -75,12 +75,13 @@
     CGPoint translation = [gestureRecognizer translationInView:_mainView];
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateChanged:
-            _mainView.topContentViewConstraint.offset = 64 + translation.y / 1.5;
+            _mainView.topContentViewConstraint.offset = 0 + translation.y / 1.5;
             _mainView.bottomContentViewConstraint.offset = 0 + translation.y / 1.5;
             [_mainView layoutIfNeeded];
             break;
-        case UIGestureRecognizerStateEnded:
-            if (!((int)_mainView.topContentViewConstraint.offset < 200)) {
+        case UIGestureRecognizerStateEnded: {
+            NSLayoutConstraint *heightConstraint = [_mainView.topContentViewConstraint valueForKey:@"layoutConstraint"];
+            if (!(heightConstraint.constant < 200.0)) {
                 [self dismissViewControllerAnimated:true completion:nil];
                 return;
             }
@@ -90,6 +91,7 @@
                 [self->_mainView layoutIfNeeded];
             }];
             break;
+        }
     }
 //    switch gestureRecognizer.state {
 //    case .changed:
