@@ -12,7 +12,7 @@ import struct UIKit.CGSize
 class SearchWorker: AuthorizedWorker {
     
     func getRandomPhotos(count: Int, completionHandler: @escaping ([Photo]?) -> ()) {
-        NetworkManager.shared.getRandomPhotos(count: count) { photos in
+        NetworkManager().getRandomPhotos(count: count) { photos in
             DispatchQueue.main.async {
                 completionHandler(photos)
             }
@@ -20,7 +20,7 @@ class SearchWorker: AuthorizedWorker {
     }
     
     func getPhoto(with id: String, completionHandler: @escaping (Photo?) -> ()) {
-        NetworkManager.shared.getPhoto(with: id) { photo in
+        NetworkManager().getPhoto(with: id) { photo in
             DispatchQueue.main.async {
                 completionHandler(photo)
             }

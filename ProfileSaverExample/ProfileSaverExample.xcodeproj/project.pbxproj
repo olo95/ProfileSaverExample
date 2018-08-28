@@ -17,6 +17,7 @@
 		EC410259212B09B500F2D149 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC410258212B09B500F2D149 /* PhotoViewController.m */; };
 		EC41025C212B0A1000F2D149 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC41025B212B0A1000F2D149 /* PhotoView.m */; };
 		EC4DD3112113ACD000605E03 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD3102113ACD000605E03 /* KeychainManager.swift */; };
+		EC7529622135D582003D6CC8 /* ProfileSaverApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7529612135D582003D6CC8 /* ProfileSaverApiTests.m */; };
 		EC84912C2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */; };
 		EC84912F2125D26900B39AE4 /* PhotosCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84912E2125D26900B39AE4 /* PhotosCollectionView.swift */; };
 		EC8491312125D3C900B39AE4 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8491302125D3C900B39AE4 /* PhotosCollectionViewCell.swift */; };
@@ -93,6 +94,8 @@
 		EC41025A212B0A1000F2D149 /* PhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		EC41025B212B0A1000F2D149 /* PhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 		EC4DD3102113ACD000605E03 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		EC7529602135D581003D6CC8 /* ProfileSaverExampleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProfileSaverExampleTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		EC7529612135D582003D6CC8 /* ProfileSaverApiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileSaverApiTests.m; sourceTree = "<group>"; };
 		EC84912B2125D00900B39AE4 /* PhotosCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		EC84912E2125D26900B39AE4 /* PhotosCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionView.swift; sourceTree = "<group>"; };
 		EC8491302125D3C900B39AE4 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 				EC84DF842115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift */,
 				EC9A37C72111C60100F481D5 /* ProfileSaverExampleTests.swift */,
 				EC9A37C92111C60100F481D5 /* Info.plist */,
+				EC7529612135D582003D6CC8 /* ProfileSaverApiTests.m */,
+				EC7529602135D581003D6CC8 /* ProfileSaverExampleTests-Bridging-Header.h */,
 			);
 			path = ProfileSaverExampleTests;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 					};
 					EC9A37C22111C60100F481D5 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = EC9A37AE2111C60000F481D5;
 					};
 				};
@@ -623,6 +629,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7529622135D582003D6CC8 /* ProfileSaverApiTests.m in Sources */,
 				ECA0D849211731BC00830971 /* ProfileSaverKeychainTests.swift in Sources */,
 				EC84DF852115E8F700D2C589 /* ProfileSaverInfoPlistTests.swift in Sources */,
 				EC9A37C82111C60100F481D5 /* ProfileSaverExampleTests.swift in Sources */,
@@ -816,6 +823,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T289F6WJGZ;
 				INFOPLIST_FILE = ProfileSaverExampleTests/Info.plist;
@@ -826,6 +834,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = olo95.ProfileSaverExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProfileSaverExampleTests/ProfileSaverExampleTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProfileSaverExample.app/ProfileSaverExample";
@@ -838,6 +848,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T289F6WJGZ;
 				INFOPLIST_FILE = ProfileSaverExampleTests/Info.plist;
@@ -848,6 +859,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = olo95.ProfileSaverExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProfileSaverExampleTests/ProfileSaverExampleTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProfileSaverExample.app/ProfileSaverExample";

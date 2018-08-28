@@ -10,8 +10,10 @@ import Foundation
 
 class NetworkManager {
     
-    static let shared = NetworkManager()
-    private init() {}
+    let session: URLSession
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
     
     func getToken(with authorizationCode: String, completionHandler: @escaping (Token?) -> ()) {
         guard let request = NetworkRouter.token(code: authorizationCode).request else {
@@ -88,7 +90,7 @@ class NetworkManager {
     }
     
     private func execute(request: URLRequest, completionHandler: @escaping (Response) -> ()) {
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        session.dataTask(with: request) { data, response, error in
             if let error = error { completionHandler(Response.failure(description: error.localizedDescription)) }
             if let data = data { completionHandler(Response.success(data: data)) }
             }.resume()

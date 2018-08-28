@@ -45,11 +45,9 @@
         UIImage *image = [[UIImage alloc] initWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!self) return;
-            self->_mainView.photoImageView.alpha = 0.0;
-            [[[UIViewPropertyAnimator alloc] initWithDuration:1.0 dampingRatio:1.0 animations:^{
+            [UIView transitionWithView:self->_mainView.photoImageView duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
                 [self->_mainView.photoImageView setImage:image];
-                self->_mainView.photoImageView.alpha = 1.0;
-            }] startAnimation];
+            } completion:nil];
         });
     }] resume];
 }
@@ -93,25 +91,6 @@
             break;
         }
     }
-//    switch gestureRecognizer.state {
-//    case .changed:
-//        mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant = 64 + translation.y / 1.5
-//        mainView.rootContainerBottomConstraint?.layoutConstraints.first?.constant = 0 + translation.y / 1.5
-//        mainView.layoutIfNeeded()
-//    case .ended:
-//        guard let topConstraintConstant = mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant,
-//        topConstraintConstant < 200.0 else {
-//            self.dismiss(animated: true, completion: nil)
-//            return
-//        }
-//        mainView.rootContainerBottomConstraint?.layoutConstraints.first?.constant = 0
-//        mainView.rootContainerTopConstraint?.layoutConstraints.first?.constant = 64
-//        UIView.animate(withDuration: 0.5, animations: { [weak self] in
-//            self?.mainView.layoutIfNeeded()
-//        })
-//    default:
-//        return
-//    }
 }
 
 @end

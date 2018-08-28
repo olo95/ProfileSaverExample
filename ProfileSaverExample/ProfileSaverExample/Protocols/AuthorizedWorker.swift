@@ -16,7 +16,7 @@ protocol AuthorizedWorker {
 extension AuthorizedWorker {
     
     func requestToken(with authorizationCode: String, completionHandler: @escaping (Token?) -> ()) {
-        NetworkManager.shared.getToken(with: authorizationCode) { token in
+        NetworkManager().getToken(with: authorizationCode) { token in
             DispatchQueue.main.async {
                 completionHandler(token)
             }
@@ -24,7 +24,7 @@ extension AuthorizedWorker {
     }
     
     func fetchUser(completionHandler: @escaping (User?) -> ()) {
-        NetworkManager.shared.getUser() { user in
+        NetworkManager().getUser() { user in
             DispatchQueue.main.async {
                 completionHandler(user)
             }
